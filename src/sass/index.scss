@@ -1,0 +1,9 @@
+@use "./components/_header.scss";
+@use "./components/_footer";
+@use "./components/_section";
+@use "./components/_product-card";
+@use "./components/_product";
+
+@import "./variables";
+@import "./mixins";
+@import "./base";
