@@ -10,7 +10,7 @@ const SimpleImageSliderHome = () => {
     <div style={{objectFit: 'cover'}}>
         <SimpleImageSlider
         width={1520}
-        height={388.941}
+        height={363.564}
         images={images}
         slideDuration={0.6}
         autoPlay={true}
