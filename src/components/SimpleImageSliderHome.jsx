@@ -1,8 +1,8 @@
 import React from 'react'
 import SimpleImageSlider from "react-simple-image-slider";
 const images = [
-    { url: require("../assets/images/slider/1.png") },
-    { url: require("../assets/images/slider/2.png") },
+    { url: require("../assets/images/slider/banner1.jpg") },
+    { url: require("../assets/images/slider/banner2.jpg") },
   ];
 // const { ref, width = 3.908, height = 1 } = useResizeObserver();
 const SimpleImageSliderHome = () => {
