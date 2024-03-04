@@ -40,8 +40,8 @@ const ProductView = props => {
 
     useEffect(() => {
         setPreviewImg(product.image)
-        const bgcolor = "#DDFFF9"
-        document.body.style.background = bgcolor;
+        // const bgcolor = "#DDFFF9"
+        // document.body.style.background = bgcolor;
     }, [product])
 
     const borrowBook = () => {

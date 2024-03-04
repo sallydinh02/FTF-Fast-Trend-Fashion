@@ -3,17 +3,17 @@ import React from 'react'
 import Helmet from '../components/Helmet'
 import Section, {SectionBody, SectionTitle} from '../components/Section'
 import Grid from '../components/Grid'
-import ProductCard from '../components/ProductCard'
+import BookCard from '../components/BookCard'
 import ProductView from '../components/ProductView'
 
-import productData from '../assets/data-loaded/product'
+import bookData from '../assets/data-loaded/books'
 
 const Product = props => {
 
-    const product = productData.getProductBySlug(props.match.params.slug);
+    const product = bookData.getBookBySlug(props.match.params.slug);
     console.log(product);
 
-    const relatedProducts = productData.getAllProducts();
+    const relatedProducts = bookData.getAllBooks();
 
     React.useEffect(() => {
         window.scrollTo(0,0)

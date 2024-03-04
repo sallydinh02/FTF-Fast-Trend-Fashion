@@ -11,7 +11,7 @@ const Footer = () => {
                 </div>
                 <div className="footer__copyright">
                     <p>
-                    © 2024 Copyright
+                    © 2023 Copyright
                     </p>
                 </div>
             </div>

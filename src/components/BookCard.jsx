@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
+// import numberWithCommas from '../utils/numberWithCommas'
+
 const ProductCard = props => {
     return (
         <div className="product-card">

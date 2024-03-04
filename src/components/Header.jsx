@@ -1,25 +1,26 @@
 import React, { useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-import logo from '../assets/images/FTF-logo.png'
+import logo from '../assets/images/logoOurBook2.png'
 import cartImg from '../assets/images/iconcart.png'
+import userImg from '../assets/images/iconuser.png'
 
 const mainNav = [
     {
-        display: "Shop",
+        display: "Home",
         path: "/"
     },
     {
-        display: "Sell on FTF",
-        path: "/sellercentral"
+        display: "Search Book",
+        path: "/searchbook"
     },
     {
-        display: "Orders",
-        path: "/orders"
+        display: "Share Book",
+        path: "/sharebook"
     },
     {
-        display: "My account",
-        path: "/account"
+        display: "Q&A",
+        path: "/q&a"
     },
     // {
     //     display: "View cart",
@@ -84,12 +85,15 @@ const Header = () => {
                     </div>
                     <div className="header__menu__right">
                         <div className="header__menu__item header__menu__right__item">
-                            
-                        </div>
-                        <div className="header__menu__item header__menu__right__item">
                             <Link to="/viewcart">
                             <img src={cartImg} alt="" width="45" height="45"/>
                             </Link>
+                        </div>
+                        <div className="header__menu__item header__menu__right__item">
+                            <Link to="/login">
+                            <img src={userImg} alt="" width="38" height="38"/>
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,58 @@
+$clr-primary: #d50000;
+$clr-primary-hover: #29e6a7;
+$clr-primary-dark: #039d69;
+$clr-gray100: #f9fbff;
+$clr-gray150: #f4f6fb;
+$clr-gray200: #eef1f6;
+$clr-gray300: #e1e5ee;
+$clr-gray400: #767b91;
+$clr-gray500: #4f546c;
+$clr-gray600: #2a324b;
+$clr-gray700: #161d34;
+$radius: 1rem;
+.features-card {
+    @include flex(center, center);
+    background-color: #D0FFD5;
+    height:280px;
+    overflow: hidden;
+    box-shadow: 0 0.5px 0.5px #554141;
+    border-radius: $radius;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: transform 200ms ease-in;
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    &__icon {
+        @include flex(center, center);
+        object-fit: cover;
+        margin-top: 30px;
+        width: 65px;
+        height: 65px;
+        color: $main-color;
+
+        i {
+            font-size: 3rem;
+        }
+    }
+
+    &__info__name {
+        margin-top: 20px;
+        text-shadow: 0.5px 0.5px black;
+            font-size: 1.7rem;
+            color: #FA7800;
+            font-weight: 700;
+            margin-bottom: 10px;
+    }
+    &__info__description {
+        margin-top: 5px;
+        font-size: 1.3rem;
+        color: black;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 400;
+    }
+}

@@ -1,30 +1,41 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
-import Helmet from '../components/Helmet.jsx'
+import Helmet from '../components/Helmet'
 import Section, { SectionTitle, SectionBody } from '../components/Section'
+import FeaturesCard from '../components/FeaturesCard'
 import Grid from '../components/Grid'
-import ProductCard from '../components/ProductCard'
+import BookCard from '../components/BookCard'
 
-// will add: a bar of categories
-//import category from '../assets/data-loaded/category'
-import productData from '../assets/data-loaded/product'
+import bookData from '../assets/data-loaded/books'
+
+import SimpleImageSliderHome from '../components/SimpleImageSliderHome'
 
 // useLayoutEffect(() => {
 //     document.body.style.backgroundColor = "#DDFFF9"
 // });
-const Shop = () => {
+const Home = () => {
     // useEffect(() => {
     //     // change background color with a random color
-    //     const bgcolor = "#DDFFF9"
+    //     const bgcolor = "#FFFFFF"
     //     document.body.style.background = bgcolor;
     //   });
-    return (   
-        <Helmet title="Shop">
-            {/* new products section */}
+    return (
+        
+        <Helmet title="Home">
+            {/* slide image */}
+            <Section>
+                <SectionBody>
+                <SimpleImageSliderHome/>
+                </SectionBody>
+            </Section>
+            {/* end slide image */}
+
+
+            {/* new arrival section */}
             <Section>
                 <SectionTitle>
-                    New Products
+                    New books
                 </SectionTitle>
                 <SectionBody>
                     <Grid
@@ -34,7 +45,7 @@ const Shop = () => {
                         gap={100}
                     >
                         {
-                            productData.getAllProducts().map((item, index) => (
+                            bookData.getAllBooks().map((item, index) => (
                                 <BookCard
                                     key={index}
                                     image={item.image}
@@ -47,10 +58,10 @@ const Shop = () => {
                     </Grid>
                 </SectionBody>
             </Section>
-            {/* end new products section */}
+            {/* end new arrival section */}
 
         </Helmet>
     )
 }
 
-export default Shop
+export default Home
