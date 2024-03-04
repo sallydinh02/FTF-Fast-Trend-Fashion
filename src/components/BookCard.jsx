@@ -10,7 +10,8 @@ const ProductCard = props => {
         <div className="product-card">
             <Link to={`/searchbook/${props.slug}`}>
                 <div className="product-card__image">
-                    <img src={props.image} alt="" width="300" height="450" />
+                    
+                    <img src={props.image} alt="" width="350" height="418" />
                 </div>
                 <h3 className="product-card__name">{props.name}</h3>
                 <div className="product-card__author">

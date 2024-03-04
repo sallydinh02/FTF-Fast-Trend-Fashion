@@ -32,10 +32,10 @@ const Home = () => {
             {/* end slide image */}
 
 
-            {/* new arrival section */}
+            {/* new products section */}
             <Section>
                 <SectionTitle>
-                    New books
+                    New products
                 </SectionTitle>
                 <SectionBody>
                     <Grid
@@ -58,7 +58,7 @@ const Home = () => {
                     </Grid>
                 </SectionBody>
             </Section>
-            {/* end new arrival section */}
+            {/* end new products section */}
 
         </Helmet>
     )

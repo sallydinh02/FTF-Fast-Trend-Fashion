@@ -6,12 +6,12 @@ const Footer = () => {
             <div className="container">
                 <div className="footer__title">
                     <h3>
-                    OurBook+
+                    FTF - Fast Trend Fashion
                     </h3>
                 </div>
                 <div className="footer__copyright">
                     <p>
-                    © 2023 Copyright
+                    © 2024 Copyright
                     </p>
                 </div>
             </div>
