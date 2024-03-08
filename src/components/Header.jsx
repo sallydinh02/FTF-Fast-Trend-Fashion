@@ -11,16 +11,16 @@ const mainNav = [
         path: "/"
     },
     {
-        display: "Search Book",
-        path: "/searchbook"
+        display: "Sell On FTF",
+        path: "/ftf-seller"
     },
     {
-        display: "Share Book",
-        path: "/sharebook"
+        display: "Orders",
+        path: "/orders"
     },
     {
-        display: "Q&A",
-        path: "/q&a"
+        display: "My account",
+        path: "/myaccount"
     },
     // {
     //     display: "View cart",

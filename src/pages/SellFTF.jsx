@@ -1,12 +1,12 @@
 import React from 'react'
 import Helmet from '../components/Helmet'
 
-const ShareBook = () => {
+const SellFTF = () => {
   return (
-    <Helmet title="Share Book">
-            Share Book
+    <Helmet title="Seller">
+            Sell on FTF
         </Helmet>
   )
 }
 
-export default ShareBook
+export default SellFTF
