@@ -36,15 +36,16 @@
         inset: 0;
         pointer-events: none;
         img {
-            width: 310.7px;
-            height:100px;
+            top: 50px;
+            width: 189.5px;
+            height:189.6px;
         }
     }
 
     &__menu {
         @include flex(center, space-between);
         height: 100%;
-        font-size: 1.5rem;
+        font-size: 1.9rem;
 
         &__item ~ &__item {
             margin-left: 50px;

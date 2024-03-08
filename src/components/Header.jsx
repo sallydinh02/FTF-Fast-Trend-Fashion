@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-import logo from '../assets/images/logoOurBook2.png'
+import logo from '../assets/images/FTF-logo-crop.png'
 import cartImg from '../assets/images/iconcart.png'
 import userImg from '../assets/images/iconuser.png'
 
