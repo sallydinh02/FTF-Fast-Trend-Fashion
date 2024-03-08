@@ -89,12 +89,6 @@ const Header = () => {
                             <img src={cartImg} alt="" width="45" height="45"/>
                             </Link>
                         </div>
-                        <div className="header__menu__item header__menu__right__item">
-                            <Link to="/login">
-                            <img src={userImg} alt="" width="38" height="38"/>
-                            </Link>
-                            
-                        </div>
                     </div>
                 </div>
             </div>
