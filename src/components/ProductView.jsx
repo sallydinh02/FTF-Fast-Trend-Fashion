@@ -91,7 +91,13 @@ const ProductView = props => {
                     <div className="product__info__item__content"> {product.description}</div>
                 </div>
                 <div className="product__info__item">
-                    <Button onClick={() => borrowBook()}>Borrow</Button>
+                    <Button onClick={() => borrowBook()}>AI Try on</Button>
+                </div>
+                <div className="product__info__item">
+                    <Button onClick={() => borrowBook()}>Buy now</Button>
+                </div>
+                <div className="product__info__item">
+                    <Button onClick={() => borrowBook()}>Add to cart</Button>
                 </div>
             </div>
         </div>

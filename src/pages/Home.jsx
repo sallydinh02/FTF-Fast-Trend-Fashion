@@ -49,8 +49,8 @@ const Home = () => {
                                 <BookCard
                                     key={index}
                                     image={item.image}
-                                    name={item.title}
-                                    author={item.author}
+                                    name={item.name}
+                                    //price={item.name}
                                     slug={item.slug}
                                 />
                             ))
