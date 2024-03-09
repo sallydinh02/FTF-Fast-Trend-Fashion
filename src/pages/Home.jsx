@@ -50,7 +50,7 @@ const Home = () => {
                                     key={index}
                                     image={item.image}
                                     name={item.name}
-                                    //price={item.name}
+                                    price={item.price}
                                     slug={item.slug}
                                 />
                             ))
