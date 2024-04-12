@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import searchwhite from '../assets/images/searchwhite.png'
+import searchblack from '../assets/images/searchblack.png'
 // import iconclose from '../assets/images/iconclose.png'
 import { useHistory } from "react-router-dom";
 // import "./SearchBar.css";
@@ -44,7 +44,7 @@ function SearchBar({ placeholder, data }) {
         />
         
         <div className="searchIcon">
-            <img src={searchwhite} alt=""/>
+            <img src={searchblack} alt=""/>
         </div>
         
       </div>

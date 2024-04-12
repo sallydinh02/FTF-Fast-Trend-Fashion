@@ -1,13 +1,11 @@
 .searchInputs {
   margin-top: 105px;
   display: flex;
-  border-color: black;
-  border-radius: 10px;
 }
 
 .search input {
-  background-color: white;
-  border: 0;
+  //background-color: white;
+  border: 2px solid black;
   border-radius: 2px;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
