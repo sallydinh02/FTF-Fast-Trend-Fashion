@@ -3,7 +3,7 @@ import { withRouter } from 'react-router'
 import { Route, Switch } from 'react-router-dom'
 
 import Home from '../pages/Home'
-import SearchBook from '../pages/SearchBook'
+import SearchProduct from '../pages/SearchProduct'
 import SellFTF from '../pages/SellFTF'
 import ViewCart from '../pages/ViewCart'
 import Orders from '../pages/Orders'
@@ -15,9 +15,9 @@ const Routes = () => {
     return (
         <Switch>
             <Route path='/' exact component={Home}/>
-            <Route path='/searchbook/:slug' component={Product}/>
+            <Route path='/searchproduct/:slug' component={Product}/>
             <Route path='/ftf-seller' component={SellFTF}/>
-            <Route path='/searchbook' component={SearchBook}/>
+            <Route path='/searchproduct' component={SearchProduct}/>
             <Route path='/orders' component={Orders}/>
             <Route path='/q&a' component={QandA}/>
             <Route path='/viewcart' component={ViewCart}/>

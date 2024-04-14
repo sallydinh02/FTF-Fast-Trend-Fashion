@@ -3,7 +3,7 @@ import React from 'react'
 import Helmet from '../components/Helmet'
 import Section, {SectionBody, SectionTitle} from '../components/Section'
 import Grid from '../components/Grid'
-import BookCard from '../components/BookCard'
+import ProductCard from '../components/ProductCard'
 import ProductView from '../components/ProductView'
 
 import bookData from '../assets/data-loaded/books'

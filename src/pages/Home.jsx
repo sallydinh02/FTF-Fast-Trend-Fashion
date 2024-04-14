@@ -5,7 +5,7 @@ import Helmet from '../components/Helmet'
 import Section, { SectionTitle, SectionBody } from '../components/Section'
 import FeaturesCard from '../components/FeaturesCard'
 import Grid from '../components/Grid'
-import BookCard from '../components/BookCard'
+import ProductCard from '../components/ProductCard'
 
 import bookData from '../assets/data-loaded/books'
 
@@ -46,7 +46,7 @@ const Home = () => {
                     >
                         {
                             bookData.getAllBooks().map((item, index) => (
-                                <BookCard
+                                <ProductCard
                                     key={index}
                                     image={item.image}
                                     name={item.name}

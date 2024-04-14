@@ -10,7 +10,7 @@ import Button from '../components/Button'
 import InfinityList from '../components/InfinityList'
 import SearchBar from '../components/SearchBar'
 
-const SearchBook = () => {
+const SearchProduct = () => {
     // useEffect(() => {
     //     // change background color with a random color
     //     const bgcolor = "#DDFFF9"
@@ -141,7 +141,7 @@ const SearchBook = () => {
                 </div>
                 
                 <div className="catalog__content">
-                    <SearchBar placeholder="Search for book's title" data={products} />
+                    <SearchBar placeholder="Search for product" data={products} />
                     <div className="bookresults">
                         <InfinityList
                             data={products}
@@ -153,4 +153,4 @@ const SearchBook = () => {
     )
 }
 
-export default SearchBook
+export default SearchProduct

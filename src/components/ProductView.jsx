@@ -83,13 +83,13 @@ const ProductView = props => {
                 
             </div>
             <div className="product__info">
-                <h3 className="product__info__title">{product.title}</h3>
-                <h3 className="product__info__author">
-                    {product.author}
+                <h3 className="product__info__name">{product.name}</h3>
+                <h3 className="product__info__price">
+                    {product.price}
                 </h3>
-                <div className="product__info__item">
+                {/* <div className="product__info__item">
                     <div className="product__info__item__content"> {product.description}</div>
-                </div>
+                </div> */}
                 <div className="product__info__item">
                     <Button onClick={() => borrowBook()}>AI Try on</Button>
                 </div>

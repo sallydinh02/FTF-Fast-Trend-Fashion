@@ -30,7 +30,7 @@ function SearchBar({ placeholder, data }) {
   };
   const history = useHistory(); 
   const pushLink=(slug)=>{
-    history.push('searchbook/'+slug)
+    history.push('searchproduct/'+slug)
   }
 
   return (
@@ -52,7 +52,7 @@ function SearchBar({ placeholder, data }) {
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
-              <a className="dataItem" href={'searchbook/'+value.slug}>
+              <a className="dataItem" href={'searchproduct/'+value.slug}>
                 <p>{value.title} </p>
               </a>
             );

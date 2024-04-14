@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import Grid from './Grid'
-import BookCard from './BookCard'
+import ProductCard from './ProductCard'
 
 const InfinityList = props => {
 
@@ -64,7 +64,7 @@ const InfinityList = props => {
             >
                 {
                     data.map((item, index) => (
-                        <BookCard
+                        <ProductCard
                             key={index}
                             image={item.image}
                             name={item.title}
