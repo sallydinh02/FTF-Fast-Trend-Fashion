@@ -64,7 +64,7 @@
                 display: block;
             }
         }
-        &__descriptiontitle {
+        &__descriptionname {
             font-size: 2.5rem;
             font-weight: normal;
             margin-top: 2rem;
@@ -77,19 +77,19 @@
             margin-top: 2rem;
         }
 
-        &__title {
+        &__name {
             margin-left: 600px;
             color: $txt-main-color;
             font-size: 2.3rem;
-            font-weight: 450;
+            font-weight: 410;
             margin-bottom: 1rem;
         }
-        &__author {
+        &__price {
             margin-left: 600px;
-            color: $txt-second-color;
-            font-size: 1.7rem;
+            color: $txt-main-color;
+            font-size: 3.5rem;
             margin-top: 15px;
-            font-weight: normal;
+            font-weight: 410;
         }
 
         &__item {
@@ -106,7 +106,7 @@
                 font-weight: 600;
             }
 
-            &__title {
+            &__name {
                 color: $txt-main-color;
                 font-size: 1.7rem;
                 font-weight: 300;

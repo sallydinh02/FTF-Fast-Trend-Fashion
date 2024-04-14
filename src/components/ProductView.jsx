@@ -22,7 +22,7 @@ const ProductView = props => {
     //     history.push(slug+'/borrow');
     // }
 
-    //const [products, setProducts] = useState(product)
+    const [products, setProducts] = useState(product)
 
     const [previewImg, setPreviewImg] = useState(product.img)
 
@@ -45,20 +45,20 @@ const ProductView = props => {
     }, [product])
 
     const borrowBook = () => {
-        // let newItem = {
-        //     slug: product.slug,
-        // }
-        //setProducts(product);
+        let newItem = {
+            slug: product.slug,
+        }
+        setProducts(product);
         props.history.push({
             state: product.slug,
             pathname:'/borrow', 
-            //state: {image: product.image, title: product.title, author: product.author, description: product.description}, 
+            state: {image: product.image, title: product.name, author: product.price}, 
         })
     }
 
-    // const goToBorrow = () => {
-    //     props.history.push('/borrow')
-    // }
+    const goToBorrow = () => {
+        props.history.push('/borrow')
+    }
 
     return (
         <div className="product">
