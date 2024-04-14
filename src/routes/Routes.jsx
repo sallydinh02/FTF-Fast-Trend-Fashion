@@ -7,7 +7,7 @@ import SearchProduct from '../pages/SearchProduct'
 import SellFTF from '../pages/SellFTF'
 import ViewCart from '../pages/ViewCart'
 import Orders from '../pages/Orders'
-import QandA from '../pages/QandA'
+import MyAccount from '../pages/MyAccount'
 import Login from '../pages/Login'
 import Product from '../pages/Product'
 
@@ -19,7 +19,7 @@ const Routes = () => {
             <Route path='/ftf-seller' component={SellFTF}/>
             <Route path='/searchproduct' component={SearchProduct}/>
             <Route path='/orders' component={Orders}/>
-            <Route path='/q&a' component={QandA}/>
+            <Route path='/myaccount' component={MyAccount}/>
             <Route path='/viewcart' component={ViewCart}/>
             <Route path='/login' component={Login}/>
         </Switch>

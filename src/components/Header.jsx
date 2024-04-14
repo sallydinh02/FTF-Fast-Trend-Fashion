@@ -19,6 +19,10 @@ const mainNav = [
         path: "/orders"
     },
     {
+        display: "Login",
+        path: "/login"
+    },
+    {
         display: "My account",
         path: "/myaccount"
     },

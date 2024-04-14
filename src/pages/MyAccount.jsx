@@ -1,12 +1,12 @@
 import React from 'react'
 import Helmet from '../components/Helmet'
 
-const QandA = () => {
+const MyAccount = () => {
   return (
-    <Helmet title="Q&A">
-            Q&A
+    <Helmet title="My account">
+            My account
         </Helmet>
   )
 }
 
-export default QandA
+export default MyAccount
