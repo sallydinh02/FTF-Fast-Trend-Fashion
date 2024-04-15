@@ -1,4 +1,4 @@
-const books = [
+const products = [
     {
         id: 1,
         name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
@@ -169,23 +169,23 @@ const books = [
     },
 ]
 
-const getAllBooks = () => books
+const getAllProducts = () => products
 
-const getBooks = (count) => {
-    const max = books.length - count
+const getProducts = (count) => {
+    const max = products.length - count
     const min = 0
     const start = Math.floor(Math.random() * (max - min) + min)
-    return books.slice(start, start + count)
+    return products.slice(start, start + count)
 }
 
-const getBookBySlug = (slug) => books.find(e => e.slug === slug)
+const getProductBySlug = (slug) => products.find(e => e.slug === slug)
 
-const bookData = {
-    getAllBooks,
-    getBooks,
-    getBookBySlug
+const productData = {
+    getAllProducts,
+    getProducts,
+    getProductBySlug
 }
 
 
 
-export default bookData
+export default productData

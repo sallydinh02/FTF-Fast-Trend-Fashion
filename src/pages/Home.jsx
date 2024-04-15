@@ -7,7 +7,7 @@ import FeaturesCard from '../components/FeaturesCard'
 import Grid from '../components/Grid'
 import ProductCard from '../components/ProductCard'
 
-import bookData from '../assets/data-loaded/books'
+import productData from '../assets/data-loaded/products'
 
 import SimpleImageSliderHome from '../components/SimpleImageSliderHome'
 
@@ -45,7 +45,7 @@ const Home = () => {
                         gap={100}
                     >
                         {
-                            bookData.getAllBooks().map((item, index) => (
+                            productData.getAllProducts().map((item, index) => (
                                 <ProductCard
                                     key={index}
                                     image={item.image}

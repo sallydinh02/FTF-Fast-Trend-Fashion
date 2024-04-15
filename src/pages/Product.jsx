@@ -6,14 +6,14 @@ import Grid from '../components/Grid'
 import ProductCard from '../components/ProductCard'
 import ProductView from '../components/ProductView'
 
-import bookData from '../assets/data-loaded/books'
+import productData from '../assets/data-loaded/products'
 
 const Product = props => {
 
-    const product = bookData.getBookBySlug(props.match.params.slug);
+    const product = productData.getProductBySlug(props.match.params.slug);
     console.log(product);
 
-    const relatedProducts = bookData.getAllBooks();
+    const relatedProducts = productData.getAllProducts();
 
     React.useEffect(() => {
         window.scrollTo(0,0)

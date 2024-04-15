@@ -5,7 +5,7 @@ import {useParams, useLocation} from 'react-router-dom';
 import { withRouter } from 'react-router'
 
 import Button from './Button'
-import bookData from '../assets/data-loaded/books'
+import productData from '../assets/data-loaded/products'
 
 const BorrowBook = () => {
 //     const navigate = useNavigate();
@@ -14,7 +14,7 @@ const BorrowBook = () => {
 //     navigate('/borrow');
 //   };
 
-    //const product = bookData.getBookBySlug(props.match.params.slug)
+    //const product = productData.getBookBySlug(props.match.params.slug)
 
     // const image = useLocation().state.image;
     // const title=useLocation().state.title;
@@ -35,7 +35,7 @@ const BorrowBook = () => {
     //     document.body.style.background = bgcolor;
     // })
     const stateParamValue=useLocation().state;
-    const product=bookData.getBookBySlug(stateParamValue);
+    const product=productData.getProductBySlug(stateParamValue);
     console.log(product);
     // const product={
     //     title: "Sherlock Homes",

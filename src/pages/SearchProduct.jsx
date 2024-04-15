@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 
 import Helmet from '../components/Helmet'
 import CheckBox from '../components/CheckBox'
-import bookData from '../assets/data-loaded/books'
+import bookData from '../assets/data-loaded/products'
 import genre from '../assets/data-loaded/genre'
 import booktypes from '../assets/data-loaded/booktype'
 // import size from '../assets/data-loaded/product-size'
