@@ -81,11 +81,9 @@ const Header = () => {
                 
                 <div className="header__menu">
                 <Link to="/">
-                <div className="header__logo">
-                    
-                        <img src={logo} alt="" />
-                    
-                </div>
+                    <div className="header__logo">
+                            <img src={logo} alt="" />
+                    </div>
                 </Link>
                     <div className="header__menu__mobile-toggle" onClick={menuToggle}>
                         <i className='bx bx-menu'></i>

@@ -66,6 +66,7 @@
 
         &__item:hover {
             color: $main-color;
+            background-color: transparent;
         }
 
         &__left,
@@ -138,7 +139,7 @@
 
     .searchInputs {
         //margin-top: 5px;
-        margin: 0 auto;
+        //margin: 0 auto;
         display: flex;
       }
       
@@ -197,10 +198,9 @@
       }
       a {
         text-decoration: none;
-      }
-      
-      a:hover {
-        background-color: lightgrey;
+        a:hover {
+            background-color: lightgrey;
+          }
       }
       
       #clearBtn {
