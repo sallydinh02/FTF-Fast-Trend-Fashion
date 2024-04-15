@@ -2,6 +2,7 @@
     @include flex(flex-start, flex-start);
 
     @include mobile {
+        margin-top: 100px;
         flex-direction: column;
     }
     &__images {
@@ -9,7 +10,7 @@
         flex-direction: row;
         width: 500px;
         height: 750px;
-        margin-left: 150px;
+        margin-left: 60px;
         // flex-wrap: wrap;
 
         @include tablet {
