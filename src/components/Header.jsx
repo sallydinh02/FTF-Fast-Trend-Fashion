@@ -80,11 +80,13 @@ const Header = () => {
             <div className="container">
                 
                 <div className="header__menu">
+                <Link to="/">
                 <div className="header__logo">
-                    <Link to="/">
+                    
                         <img src={logo} alt="" />
-                    </Link>
+                    
                 </div>
+                </Link>
                     <div className="header__menu__mobile-toggle" onClick={menuToggle}>
                         <i className='bx bx-menu'></i>
                     </div>
