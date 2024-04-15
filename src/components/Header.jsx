@@ -15,16 +15,29 @@ const mainNav = [
         path: "/ftf-seller"
     },
     {
-        display: "Orders",
-        path: "/orders"
-    },
-    {
         display: "Login",
         path: "/login"
     },
     {
+        display: "Orders",
+        path: "/orders"
+    },
+    {
         display: "My account",
-        path: "/myaccount"
+        path: "/myaccount",
+        // submenu: [
+        // {
+        //     display: 'Login',
+        //     path: 'login',
+        // },
+        // {
+        //     display: 'Profile',
+        //     path: 'profile',
+        // },
+        // {
+        //     display: 'Logout',
+        //     path: 'logout',
+        // },]
     },
     // {
     //     display: "View cart",
