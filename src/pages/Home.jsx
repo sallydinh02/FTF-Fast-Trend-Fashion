@@ -6,9 +6,7 @@ import Section, { SectionTitle, SectionBody } from '../components/Section'
 import FeaturesCard from '../components/FeaturesCard'
 import Grid from '../components/Grid'
 import ProductCard from '../components/ProductCard'
-
 import productData from '../assets/data-loaded/products'
-
 import SimpleImageSliderHome from '../components/SimpleImageSliderHome'
 
 // useLayoutEffect(() => {
@@ -30,7 +28,6 @@ const Home = () => {
                 </SectionBody>
             </Section>
             {/* end slide image */}
-
 
             {/* new products section */}
             <Section>

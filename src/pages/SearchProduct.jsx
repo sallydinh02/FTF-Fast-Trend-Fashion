@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 
 import Helmet from '../components/Helmet'
 import CheckBox from '../components/CheckBox'
-import bookData from '../assets/data-loaded/products'
+import productData from '../assets/data-loaded/products'
 import genre from '../assets/data-loaded/genre'
 import booktypes from '../assets/data-loaded/booktype'
 // import size from '../assets/data-loaded/product-size'
@@ -22,7 +22,7 @@ const SearchProduct = () => {
         size: []
     }
 
-    const productList = bookData.getAllBooks()
+    const productList = productData.getAllProducts()
 
     const [products, setProducts] = useState(productList)
 
@@ -85,7 +85,7 @@ const SearchProduct = () => {
     const showHideFilter = () => filterRef.current.classList.toggle('active')
 
     return (
-        <Helmet title="Search Book">
+        <Helmet title="Search Product">
             <div className="catalog">
                 <div className="catalog__filter" ref={filterRef}>
                     <div className="catalog__filter__close" onClick={() => showHideFilter()}>

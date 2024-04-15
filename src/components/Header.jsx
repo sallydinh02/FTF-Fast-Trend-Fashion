@@ -4,23 +4,28 @@ import { Link, useLocation } from 'react-router-dom'
 import logo from '../assets/images/FTF-logo-crop.png'
 import cartImg from '../assets/images/iconcart.png'
 import userImg from '../assets/images/iconuser.png'
+import SearchBar from './SearchBar'
 
-const mainNav = [
-    {
-        display: "Home",
-        path: "/"
-    },
+const mainNavLeft = [
+    // {
+    //     display: "Home",
+    //     path: "/"
+    // },
     {
         display: "Sell On FTF",
         path: "/ftf-seller"
     },
     {
-        display: "Login",
-        path: "/login"
-    },
-    {
         display: "Orders",
         path: "/orders"
+    },
+]
+
+const mainNavRight=[
+    
+    {
+        display: "Login",
+        path: "/login"
     },
     {
         display: "My account",
@@ -48,7 +53,8 @@ const mainNav = [
 const Header = () => {
 
     const { pathname } = useLocation()
-    const activeNav = mainNav.findIndex(e => e.path === pathname)
+    const activeNavLeft = mainNavLeft.findIndex(e => e.path === pathname)
+    const activeNavRight = mainNavRight.findIndex(e => e.path === pathname)
 
     const headerRef = useRef(null)
 
@@ -87,10 +93,10 @@ const Header = () => {
                             <i className='bx bx-chevron-left'></i>
                         </div>
                         {
-                            mainNav.map((item, index) => (
+                            mainNavLeft.map((item, index) => (
                                 <div
                                     key={index}
-                                    className={`header__menu__item header__menu__left__item ${index === activeNav ? 'active' : ''}`}
+                                    className={`header__menu__item header__menu__left__item ${index === activeNavLeft ? 'active' : ''}`}
                                     onClick={menuToggle}
                                 >
                                     <Link to={item.path}>
@@ -100,7 +106,21 @@ const Header = () => {
                             ))
                         }
                     </div>
+                    <SearchBar></SearchBar>
                     <div className="header__menu__right">
+                        {
+                            mainNavRight.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className={`header__menu__item header__menu__left__item ${index === activeNavRight ? 'active' : ''}`}
+                                    onClick={menuToggle}
+                                >
+                                    <Link to={item.path}>
+                                        <span>{item.display}</span>
+                                    </Link>
+                                </div>
+                            ))
+                        }
                         <div className="header__menu__item header__menu__right__item">
                             <Link to="/viewcart">
                             <img src={cartImg} alt="" width="45" height="45"/>
