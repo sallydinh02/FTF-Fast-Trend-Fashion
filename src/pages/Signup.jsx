@@ -5,39 +5,42 @@ import { useHistory } from "react-router-dom";
 import Helmet from '../components/Helmet'
 //import 'bootstrap/dist/css/bootstrap.min.css'
 
-const Login = () => {
-  const [email, setEmail] = useState()
+const Signup = () => {
+    const [name, setName] = useState()
+    const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const history = useHistory()
 
-    // handle user submit information to login
     const handleUserSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/login", { email, password })
-        .then(result => 
-          {
-            console.log(result)
-            if(result.data === "Success")
-            {
-              history.push("/")
-            }
-            else
-            {
-                history.push("/signup")
-                alert("You don't have an account yet")
-            }
+        axios.post("http://localhost:3000/signup", { name, email, password })
+        .then(result => {console.log(result)
+        history.push("/login")
         })
         .catch(err => console.log(err))
     }
-  return (
-    // <Helmet title="Login">
-      
+
+    return (
+    // <Helmet title="Signup">
+        
     // </Helmet>
     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
         <div className="bg-white p-3 rounded w-25">
-            <h2><center>Login</center></h2>
+        <h2><center>Sign Up</center></h2>
+
             <form onSubmit={handleUserSubmit}>
-                
+                <div className="mb-3">
+                    {/* <label htmlFor="email">
+                        <strong>Name</strong>
+                    </label> */}
+                    <input type="text" 
+                    placeholder='Name' 
+                    autoComplete='off' 
+                    name='email' 
+                    className='form-control rounded-0'
+                    onChange={(e) => setName(e.target.value)}
+                    />
+                </div>
                 <div className="mb-3">
                     {/* <label htmlFor="email">
                         <strong>Email</strong>
@@ -64,13 +67,14 @@ const Login = () => {
                     />
                 </div>
                 <button type="submit" className="btn btn-success w-100 rounded-0">
-                    Login
+                    Sign Up
                 </button>
                 </form>
-                <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+                <p>Already have an account? <Link to="/login">Login</Link></p>
+            
         </div>
     </div>
   )
 }
 
-export default Login
+export default Signup

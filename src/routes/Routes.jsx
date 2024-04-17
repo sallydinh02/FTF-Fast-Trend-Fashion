@@ -10,6 +10,7 @@ import Orders from '../pages/Orders'
 import MyAccount from '../pages/MyAccount'
 import Login from '../pages/Login'
 import Product from '../pages/Product'
+import Signup from '../pages/Signup'
 
 const Routes = () => {
     return (
@@ -22,6 +23,7 @@ const Routes = () => {
             <Route path='/myaccount' component={MyAccount}/>
             <Route path='/viewcart' component={ViewCart}/>
             <Route path='/login' component={Login}/>
+            <Route path='/signup' component={Signup}/>
         </Switch>
     )
 }
