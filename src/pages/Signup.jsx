@@ -31,7 +31,7 @@ const Signup = () => {
                         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                     </div>
                     <div className="signup__button-container">
-                        <button>Continue</button>
+                        <button>Sign up</button>
                     </div>
                 </form>
                 <div className="signup__clicklogin-container">
