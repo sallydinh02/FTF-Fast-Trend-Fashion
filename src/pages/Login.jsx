@@ -30,46 +30,26 @@ const Login = () => {
         .catch(err => console.log(err))
     }
   return (
-    // <Helmet title="Login">
-      
-    // </Helmet>
-    <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="bg-white p-3 rounded w-25">
-            <h2><center>Login</center></h2>
-            <form onSubmit={handleUserSubmit}>
-                
-                <div className="mb-3">
-                    {/* <label htmlFor="email">
-                        <strong>Email</strong>
-                    </label> */}
-                    <input type="text" 
-                    placeholder='Email' 
-                    autoComplete='off' 
-                    name='email' 
-                    className='form-control rounded-0' 
-                    onChange={(e) => setEmail(e.target.value)}
-
-                    />
-                </div>
-                <div className="mb-3">
-                    {/* <label htmlFor="email">
-                        <strong>Password</strong>
-                    </label> */}
-                    <input type="password" 
-                    placeholder='Password' 
-                    name='password' 
-                    className='form-control rounded-0' 
-                    onChange={(e) => setPassword(e.target.value)}
-
-                    />
-                </div>
-                <button type="submit" className="btn btn-success w-100 rounded-0">
-                    Login
-                </button>
+    <Helmet title="Login">
+      <div className='login'>
+            <div className="login__container">
+                <h1>Login</h1>
+                <form onSubmit={handleUserSubmit}>
+                    <div className="login__fields">
+                        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                    </div>
+                    <div className="login__button-container">
+                        <button>Login</button>
+                    </div>
                 </form>
-                <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+                <div className="login__clicksignup-container">
+                    <p>Don't have an account? <Link to="/signup"><span>Sign up</span></Link></p>
+                </div>
+            </div>
         </div>
-    </div>
+    </Helmet>
+    
   )
 }
 
