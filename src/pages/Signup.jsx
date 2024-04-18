@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Helmet from '../components/Helmet'
-//import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Signup = () => {
     const [name, setName] = useState()
@@ -21,59 +20,27 @@ const Signup = () => {
     }
 
     return (
-    // <Helmet title="Signup">
-        
-    // </Helmet>
-    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-        <div className="bg-white p-3 rounded w-25">
-        <h2><center>Sign Up</center></h2>
-
-            <form onSubmit={handleUserSubmit}>
-                <div className="mb-3">
-                    {/* <label htmlFor="email">
-                        <strong>Name</strong>
-                    </label> */}
-                    <input type="text" 
-                    placeholder='Name' 
-                    autoComplete='off' 
-                    name='email' 
-                    className='form-control rounded-0'
-                    onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-                <div className="mb-3">
-                    {/* <label htmlFor="email">
-                        <strong>Email</strong>
-                    </label> */}
-                    <input type="text" 
-                    placeholder='Email' 
-                    autoComplete='off' 
-                    name='email' 
-                    className='form-control rounded-0' 
-                    onChange={(e) => setEmail(e.target.value)}
-
-                    />
-                </div>
-                <div className="mb-3">
-                    {/* <label htmlFor="email">
-                        <strong>Password</strong>
-                    </label> */}
-                    <input type="password" 
-                    placeholder='Password' 
-                    name='password' 
-                    className='form-control rounded-0' 
-                    onChange={(e) => setPassword(e.target.value)}
-
-                    />
-                </div>
-                <button type="submit" className="btn btn-success w-100 rounded-0">
-                    Sign Up
-                </button>
+    <Helmet title="Signup">
+        <div className='signup'>
+            <div className="signup__container">
+                <h1>Sign Up</h1>
+                <form onSubmit={handleUserSubmit}>
+                    <div className="signup__fields">
+                        <input type="text" placeholder="Full Name" onChange={(e) => setName(e.target.value)}/>
+                        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                    </div>
+                    <div className="signup__button-container">
+                        <button>Continue</button>
+                    </div>
                 </form>
-                <p>Already have an account? <Link to="/login">Login</Link></p>
-            
+                <div className="signup__clicklogin-container">
+                    <p>Already have an account? <Link to="/login"><span>Login</span></Link></p>
+                </div>
+                
+            </div>
         </div>
-    </div>
+    </Helmet>
   )
 }
 

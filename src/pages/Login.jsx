@@ -33,7 +33,7 @@ const Login = () => {
     // <Helmet title="Login">
       
     // </Helmet>
-    <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+    <div className="d-flex justify-content-center align-items-center vh-100">
         <div className="bg-white p-3 rounded w-25">
             <h2><center>Login</center></h2>
             <form onSubmit={handleUserSubmit}>
