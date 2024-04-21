@@ -8,11 +8,14 @@ const Signup = () => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [address, setAddress] = useState()
+    const [phoneNumber, setPhoneNumber] = useState()
+    const [cardNumber, setCardNumber] = useState()
     const history = useHistory()
 
     const handleUserSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/signup", { name, email, password })
+        axios.post("http://localhost:3000/signup", { name, email, password, address, phoneNumber, cardNumber })
         .then(result => {console.log(result)
         history.push("/login")
         })
@@ -29,6 +32,9 @@ const Signup = () => {
                         <input type="text" placeholder="Full Name" onChange={(e) => setName(e.target.value)}/>
                         <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                        <input type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)}/>
+                        <input type="text" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)}/>
+                        <input type="text" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)}/>
                     </div>
                     <div className="signup__button-container">
                         <button>Sign up</button>
