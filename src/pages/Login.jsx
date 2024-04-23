@@ -13,7 +13,7 @@ const Login = () => {
     // handle user submit information to login
     const handleUserSubmit = (e) => {
         e.preventDefault()
-        axios.post("http://localhost:3000/login", { email, password })
+        axios.post("http://localhost:4000/login", { email, password })
         .then(result => 
           {
             console.log(result)
