@@ -6,6 +6,7 @@ const port=4000
 const path=require("path")
 const jwt=require("jsonwebtoken")
 const multer=require("multer")
+const { createCipheriv } = require("crypto")
 
 const app = express()
 app.use(express.json())
@@ -75,6 +76,10 @@ app.post('/signup', async(req, res)=>{
         name: req.body.name,
         email:req.body.email,
         password:req.body.password,
+        tryonPhotos: '',
+        address: '',
+        phoneNumber: '',
+        cardNumber: '',
         cartData: cart, 
     })
 
@@ -89,6 +94,70 @@ app.post('/signup', async(req, res)=>{
     const token=jwt.sign(data, 'secret_ecom');
     res.json({success: true, token})
 })
+
+function verifyToken(req, res, next) {
+    const token = req.header('Authorization');
+    if (!token) {
+      return res.status(403).json({success: false, error: 'No token found' });
+    }
+  
+    // jwt.verify(token.replace('Bearer ', ''), SECRET_KEY, (err, decoded) => {
+    //   if (err) {
+    //     return res.status(401).json({ message: 'Token is invalid' });
+    //   }
+    //   req.user = decoded; // Set user information in request object for further use
+    //   next();
+    // });
+    try {
+        // Verify token
+        const decoded = jwt.verify(token, 'secret_ecom');
+    
+        // Add user from payload to request object
+
+        req.user = decoded;
+    
+        next();
+      } catch (err) {
+        res.status(401).json({success: false, error: 'Invalid token' });
+      }
+  }
+
+app.post('/signup-info/:id', verifyToken, async(req, res)=>{
+    //const token=await localStorage.getItem('token');
+    try {
+        const { address, phoneNumber, cardNumber} = req.body;
+        // For simplicity, assuming the user ID is included in the token payload
+        const customerId = req.user._id;
+        const customer = await CustomerModel.findByIdAndUpdate(customerId);
+        if (!customer) {
+          return res.status(404).json({success: false, message: 'User not found' });
+        }
+        customer.address = address;
+        customer.phoneNumber = phoneNumber;
+        customer.cardNumber=cardNumber;
+        await customer.save();
+        res.json({success: true, message: 'Profile updated successfully' });
+      } catch (error) {
+        res.status(500).json({ error: error.message });
+      }
+})
+
+// app.post("/signup-info", async(req, res)=>{
+//     const{email, address, phoneNumber, cardNumber}=req.body;
+//     try{
+//         await CustomerModel.updateOne({email: email},{
+//             $set:{
+//                 address: address,
+//                 phoneNumber: phoneNumber,
+//                 cardNumber: cardNumber
+//             }
+//         })
+//         return res.json({success: true, data: "updated"})
+//     }
+//     catch(error){
+//         return res.json({success: false, data: error})
+//     }
+// })
 
 
 app.listen(port, (error) => {

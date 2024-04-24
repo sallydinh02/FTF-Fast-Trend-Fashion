@@ -8,6 +8,9 @@ const Signup = () => {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    // const [address, setAddress] = useState("");
+    // const [phoneNumber, setPhoneNumber] = useState("");
+    // const [cardNumber, setCardNumber] = useState("");
     // const [address, setAddress] = useState()
     // const [phoneNumber, setPhoneNumber] = useState()
     // const [cardNumber, setCardNumber] = useState()
@@ -27,6 +30,9 @@ const Signup = () => {
                 alert(result.data.error)
             }
         })
+        // .then(data=>{
+        //     console.log(data.data)
+        // })
         .catch(err => console.log(err))
     }
 
