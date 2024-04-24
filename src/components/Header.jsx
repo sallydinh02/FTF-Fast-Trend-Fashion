@@ -67,7 +67,7 @@ const Header = () => {
             }
         })
         return () => {
-            window.removeEventListener("scroll")
+            window.removeEventListener("scroll", null)
         };
     }, []);
 
@@ -123,7 +123,9 @@ const Header = () => {
                         } */}
                         
                         <div className="header__menu__right__item">
-                            <Link to="/login"><button>Login</button></Link>
+                            {localStorage.getItem('auth-token')
+                            ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Logout</button>
+                            :<Link to="/login"><button>Login</button></Link>}
                             <Link to="/myaccount"><p>My account</p></Link>
                             <Link to="/viewcart">
                                 <img src={cartImg} alt="" width="45" height="45"/>
