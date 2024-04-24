@@ -1,9 +1,23 @@
 const mongoose = require('mongoose')
 
 const CustomerSchema = new mongoose.Schema({
-   name:String,
-   email:String,
-   password:String,
+   name:{
+      type: String,
+   },
+   email:{
+      type: String,
+      unique: true,
+   },
+   password:{
+      type: String,
+   },
+   cartData:{
+      type:Object,
+   },
+   date:{
+      type:Date,
+      default:Date.now,
+   }
 })
 
 const CustomerModel = mongoose.model("customer", CustomerSchema)
