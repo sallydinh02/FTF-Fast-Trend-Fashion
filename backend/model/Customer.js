@@ -11,6 +11,18 @@ const CustomerSchema = new mongoose.Schema({
    password:{
       type: String,
    },
+   profile:{
+      type: String,
+   },
+   address:{
+      type: String,
+   },
+   phoneNumber:{
+      type: String,
+   },
+   cardNumber:{
+      type: String,
+   },
    cartData:{
       type:Object,
    },

@@ -20,7 +20,8 @@ const Signup = () => {
             console.log(result);
             if (result.data.success){
                 localStorage.setItem('auth-token',result.data.token);
-                history.push("/login")
+                //history.push("/login")
+                history.push("/signup-info")
             } 
             else{
                 alert(result.data.error)

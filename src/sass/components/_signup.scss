@@ -66,5 +66,19 @@
                 color:$main-color
             }
           }
-      }      
+      }  
+      &__clicknext-container{
+        display: flex;
+        justify-content: right;
+        align-items:center;
+        p{
+            margin-top: 35px;
+            color: #5c5c5c;
+            font-size: 28px;
+            font-weight: 500;
+            span{
+                color:$main-color
+            }
+          }
+      }     
 }

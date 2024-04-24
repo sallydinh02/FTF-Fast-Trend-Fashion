@@ -11,6 +11,7 @@ import MyAccount from '../pages/MyAccount'
 import Login from '../pages/Login'
 import Product from '../pages/Product'
 import Signup from '../pages/Signup'
+import CustomerInfo from '../pages/CustomerInfo'
 
 const Routes = () => {
     return (
@@ -24,6 +25,7 @@ const Routes = () => {
             <Route path='/viewcart' component={ViewCart}/>
             <Route path='/login' component={Login}/>
             <Route path='/signup' component={Signup}/>
+            <Route path='/signup-info' component={CustomerInfo}/>
         </Switch>
     )
 }
