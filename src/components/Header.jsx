@@ -21,40 +21,40 @@ const mainNavLeft = [
     },
 ]
 
-const mainNavRight=[
+// const mainNavRight=[
     
-    {
-        display: "Login",
-        path: "/login"
-    },
-    {
-        display: "My account",
-        path: "/myaccount",
-        // submenu: [
-        // {
-        //     display: 'Login',
-        //     path: 'login',
-        // },
-        // {
-        //     display: 'Profile',
-        //     path: 'profile',
-        // },
-        // {
-        //     display: 'Logout',
-        //     path: 'logout',
-        // },]
-    },
-    // {
-    //     display: "View cart",
-    //     path: "/viewcart"
-    // },
-]
+//     {
+//         display: "Login",
+//         path: "/login"
+//     },
+//     {
+//         display: "My account",
+//         path: "/myaccount",
+//         // submenu: [
+//         // {
+//         //     display: 'Login',
+//         //     path: 'login',
+//         // },
+//         // {
+//         //     display: 'Profile',
+//         //     path: 'profile',
+//         // },
+//         // {
+//         //     display: 'Logout',
+//         //     path: 'logout',
+//         // },]
+//     },
+//     // {
+//     //     display: "View cart",
+//     //     path: "/viewcart"
+//     // },
+// ]
 
 const Header = () => {
 
     const { pathname } = useLocation()
     const activeNavLeft = mainNavLeft.findIndex(e => e.path === pathname)
-    const activeNavRight = mainNavRight.findIndex(e => e.path === pathname)
+    //const activeNavRight = mainNavRight.findIndex(e => e.path === pathname)
 
     const headerRef = useRef(null)
 
@@ -108,7 +108,7 @@ const Header = () => {
                     </div>
                     <SearchBar></SearchBar>
                     <div className="header__menu__right">
-                        {
+                        {/* {
                             mainNavRight.map((item, index) => (
                                 <div
                                     key={index}
@@ -120,11 +120,11 @@ const Header = () => {
                                     </Link>
                                 </div>
                             ))
-                        }
+                        } */}
                         
-                        <div className="header__menu__item header__menu__right__item">
-                            {/* <Link to="/login"><button>Login</button></Link>
-                            <Link to="/myaccount"><span>My account</span></Link> */}
+                        <div className="header__menu__right__item">
+                            <Link to="/login"><button>Login</button></Link>
+                            <Link to="/myaccount"><p>My account</p></Link>
                             <Link to="/viewcart">
                                 <img src={cartImg} alt="" width="45" height="45"/>
                             </Link>
