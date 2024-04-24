@@ -84,6 +84,25 @@
                 @include tablet {
                     margin-left: 10px;
                 }
+                //margin-left: 10px;
+                cursor:pointer;
+                button{
+                    border-radius: 20px;
+                    border: 10px solid "black";
+                    width: 110px;
+                    height:60px;
+                    outline:none;
+                    font-size:2.0rem;
+                    background:white;
+                    cursor:pointer;
+                }
+                img:active{
+                    background: #f3f3f3;
+                }
+                button:active{
+                    background: #f3f3f3;
+                }
+                
             }
 
             @include mobile {

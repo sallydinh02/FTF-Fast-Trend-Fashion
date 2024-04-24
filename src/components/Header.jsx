@@ -121,9 +121,12 @@ const Header = () => {
                                 </div>
                             ))
                         }
+                        
                         <div className="header__menu__item header__menu__right__item">
+                            {/* <Link to="/login"><button>Login</button></Link>
+                            <Link to="/myaccount"><span>My account</span></Link> */}
                             <Link to="/viewcart">
-                            <img src={cartImg} alt="" width="45" height="45"/>
+                                <img src={cartImg} alt="" width="45" height="45"/>
                             </Link>
                         </div>
                     </div>
