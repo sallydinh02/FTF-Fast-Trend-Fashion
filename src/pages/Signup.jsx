@@ -15,10 +15,16 @@ const Signup = () => {
 
     const handleUserSubmit = (e) => {
         e.preventDefault()
-        //axios.post("http://localhost:3000/signup", { name, email, password, address, phoneNumber, cardNumber })
         axios.post("http://localhost:4000/signup", { name, email, password })
-        .then(result => {console.log(result)
-        history.push("/login")
+        .then(result => {
+            console.log(result);
+            if (result.data.success){
+                localStorage.setItem('auth-token',result.data.token);
+                history.push("/login")
+            } 
+            else{
+                alert(result.data.error)
+            }
         })
         .catch(err => console.log(err))
     }

@@ -6,25 +6,26 @@ import Helmet from '../components/Helmet'
 //import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Login = () => {
-  const [email, setEmail] = useState()
+    const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const history = useHistory()
 
     // handle user submit information to login
-    const handleUserSubmit = (e) => {
+    const handleUserSubmit = async (e) => {
         e.preventDefault()
         axios.post("http://localhost:4000/login", { email, password })
         .then(result => 
           {
             console.log(result)
-            if(result.data === "Success")
+            if(result.data.success)
             {
+              localStorage.setItem('auth-token',result.data.token);
               history.push("/")
             }
             else
             {
-                history.push("/signup")
-                alert("You don't have an account yet")
+                alert(result.data.error)
+                //history.push("/signup")
             }
         })
         .catch(err => console.log(err))
