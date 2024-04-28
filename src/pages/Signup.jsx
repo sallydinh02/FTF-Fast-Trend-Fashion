@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Helmet from '../components/Helmet'
+import tryonPhotoEx from '../assets/images/example-photo.jpg'
 
 const Signup = () => {
     const [name, setName] = useState()
@@ -40,12 +41,18 @@ const Signup = () => {
                 <h1>Sign Up</h1>
                 <form onSubmit={handleUserSubmit}>
                     <div className="signup__fields">
-                        <input type="text" placeholder="Full Name" onChange={(e) => setName(e.target.value)}/>
-                        <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                        <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
-                        <input type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)}/>
-                        <input type="text" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)}/>
-                        <input type="text" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)}/>
+                        <div className="signup__fields__input">
+                            <input type="text" placeholder="Full Name" onChange={(e) => setName(e.target.value)}/>
+                            <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                            <input type="text" placeholder="Address" onChange={(e) => setAddress(e.target.value)}/>
+                            <input type="text" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)}/>
+                            <input type="text" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)}/>
+                        </div>
+                        <div className="signup__fields__img">
+                            <img src={tryonPhotoEx} alt="" width="100%" height="100%"></img>
+                        </div>
+                        {/* <img className="signup__fields__tryonimg" src={tryonPhotoEx} alt="" width="85%" height="85%"></img> */}
                     </div>
                     <div className="signup__button-container">
                         <button>Sign up</button>

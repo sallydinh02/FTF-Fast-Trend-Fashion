@@ -6,11 +6,12 @@
     padding-top: 0px;
 
     &__container {
-        width: 620px;
-        height: 600px;
+        width: 730px;
+        height: 730px;
         background: white;
         margin: auto;
-        padding: 17px 60px;
+        //justify-content: center;
+        padding: 17px;
       
         h1 {
             text-align: center;
@@ -21,18 +22,35 @@
       
       &__fields {
         display: flex;
-        flex-direction: column;
-        gap: 23px;
+        flex-direction: row;
+        gap: 60px;
         margin-top: 38px;
+        &__input{
+          //flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 23px;
+          //margin-top: 38px;
 
-        input {
-            height: 55px;
-            width: 100%;
-            padding-left: 20px;
-            border: 1px solid #c9c9c9;
-            outline: none;
-            color: #292828;
-            font-size: 22px;
+          input {
+              height: 55px;
+              width: 350px;
+              padding-left: 20px;
+              border: 1px solid #a3a2a2;
+              outline: none;
+              color: #292828;
+              font-size: 22px;
+          }
+        }
+
+        &__img{
+          //flex: 1;
+          display: flex;
+          width: 80%;
+          height: 80%;
+          border: 2px solid #a3a2a2;
+          //padding-left: 20px;
+          //justify-content: right;
         }
       }
       
