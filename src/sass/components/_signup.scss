@@ -29,8 +29,8 @@
           //flex: 1;
           display: flex;
           flex-direction: column;
-          gap: 23px;
-          //margin-top: 38px;
+          gap: 30px;
+          margin-top: 20px;
 
           input {
               height: 55px;
@@ -48,9 +48,18 @@
           display: flex;
           width: 80%;
           height: 80%;
-          border: 2px solid #a3a2a2;
+          flex-direction: column;
+          //margin-top: 10px;
           //padding-left: 20px;
-          //justify-content: right;
+          justify-content: center;
+          align-items: center;
+          p{
+            font-size: 22px;
+          }
+          img{
+            margin-top: 20px;
+            border: 2px solid #a3a2a2;
+          }
         }
       }
       

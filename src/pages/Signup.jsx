@@ -50,7 +50,8 @@ const Signup = () => {
                             <input type="text" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)}/>
                         </div>
                         <div className="signup__fields__img">
-                            <img src={tryonPhotoEx} alt="" width="100%" height="100%"></img>
+                            <p>Upload your full-body photo. Our AI feature will help you try on fashion items virtually</p>
+                            <img src={tryonPhotoEx} alt="" width="95%" height="95%"></img>
                         </div>
                         {/* <img className="signup__fields__tryonimg" src={tryonPhotoEx} alt="" width="85%" height="85%"></img> */}
                     </div>
