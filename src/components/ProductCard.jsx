@@ -11,7 +11,7 @@ const ProductCard = props => {
             <Link to={`/searchproduct/${props.slug}`}>
                 <div className="product-card__image">
                     
-                    <img src={props.image} alt="" width="350" height="418" />
+                    <img src={props.image} alt="" width="100%" height="100%" />
                 </div>
                 <h3 className="product-card__name">{props.name}</h3>
                 <div className="product-card__price">
