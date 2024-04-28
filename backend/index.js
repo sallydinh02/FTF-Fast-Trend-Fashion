@@ -76,10 +76,10 @@ app.post('/signup', async(req, res)=>{
         name: req.body.name,
         email:req.body.email,
         password:req.body.password,
-        tryonPhotos: '',
-        address: '',
-        phoneNumber: '',
-        cardNumber: '',
+        // tryonPhotos: "",
+        address: req.body.address,
+        phoneNumber: req.body.phoneNumber,
+        cardNumber: req.body.cardNumber,
         cartData: cart, 
     })
 
@@ -122,21 +122,42 @@ function verifyToken(req, res, next) {
       }
   }
 
-app.post('/signup-info/:id', verifyToken, async(req, res)=>{
+app.put('/signup-info/:id', async(req, res)=>{
     //const token=await localStorage.getItem('token');
     try {
-        const { address, phoneNumber, cardNumber} = req.body;
-        // For simplicity, assuming the user ID is included in the token payload
-        const customerId = req.user._id;
-        const customer = await CustomerModel.findByIdAndUpdate(customerId);
-        if (!customer) {
-          return res.status(404).json({success: false, message: 'User not found' });
+        //const { address, phoneNumber, cardNumber} = req.body;
+        
+        // const {customerId} = req.params;
+        // const customer = await CustomerModel.findById(req.params.id);
+        // if (customer) {
+        //     const updateCustomer=await CustomerModel.findByIdAndUpdate(
+        //         customerId,
+        //         {address, phoneNumber, cardNumber},
+        //         {new: true},
+        //     );
+        //     res.status(200).json(updateCustomer);
+        // }
+        // else {
+        //     return res.status(404).json({success: false, message: 'User not found' });
+        // }
+        // customer.address = address;
+        // customer.phoneNumber = phoneNumber;
+        // customer.cardNumber=cardNumber;
+        // await customer.save();
+        // res.json({success: true, message: 'Profile updated successfully' });
+        const {customerId}=req.params;
+        //const { address, phoneNumber, cardNumber} = req.body;
+        const customer=await CustomerModel.findByIdAndUpdate(customerId,
+            // address:address,
+            // phoneNumber:phoneNumber,
+            // cardNumber: cardNumber
+            req.body
+        );
+        if (!customer){
+            return res.status(404).json({success: false, error: "Customer account doesn't exist"});
         }
-        customer.address = address;
-        customer.phoneNumber = phoneNumber;
-        customer.cardNumber=cardNumber;
-        await customer.save();
-        res.json({success: true, message: 'Profile updated successfully' });
+        const updateCustomer=await CustomerModel.findById(customerId);
+        res.status(200).json(updateCustomer);
       } catch (error) {
         res.status(500).json({ error: error.message });
       }

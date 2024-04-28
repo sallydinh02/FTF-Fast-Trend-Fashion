@@ -3,30 +3,34 @@ const mongoose = require('mongoose')
 const CustomerSchema = new mongoose.Schema({
    name:{
       type: String,
-      required: true
+      //required: true
    },
    email:{
       type: String,
-      required: true,
+      //required: true,
       unique: true
    },
    password:{
       type: String,
-      required: true
+      //required: true
    },
    tryonPhotos:{
-      type: String,
+      type: String
+      //default: ""
    },
    address:{
       type: String,
+      //default: ""
    },
    phoneNumber:{
-      //type: Number,
-      type: String,
+      type: Number,
+      //type: String
+      //default: 1
    },
    cardNumber:{
-      //type: Number,
-      type: String,
+      type: Number,
+      //type: String
+      //default: 1
    },
    cartData:{
       type:Object,

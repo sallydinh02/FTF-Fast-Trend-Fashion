@@ -16,7 +16,7 @@ const CustomerInfo = () => {
 
     const handleUserSubmit = (e) => {
         e.preventDefault()
-        axios.put("http://localhost:4000/signup-info", { address, phoneNumber, cardNumber },{
+        axios.put("http://localhost:4000/signup-info/:id", { address, phoneNumber, cardNumber },{
             headers: {
               Authorization: localStorage.getItem('token') // Attach JWT token from localStorage
             }
@@ -73,6 +73,9 @@ const CustomerInfo = () => {
                         <input type="text" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)}/>
                         <input type="text" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)}/>
                     </div>
+                    <div className="signupinfo__clicknext-container">
+                    <p><Link to="/login"><span>Next</span></Link></p>
+                </div>
                 </form>
                
                 {/* <div className="signupinfo__fields">
@@ -80,9 +83,7 @@ const CustomerInfo = () => {
                     <input type="text" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)}/>
                     <input type="text" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)}/>
                 </div> */}
-                <div className="signupinfo__clicknext-container">
-                    <p><Link to="/login"><span>Next</span></Link></p>
-                </div>
+                
                 
             </div>
         </div>
