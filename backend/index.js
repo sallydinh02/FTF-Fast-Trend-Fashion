@@ -64,18 +64,29 @@ app.post('/login', async(req, res)=>{
 })
 
 const storage = multer.diskStorage({
-    // destination: (req, file, cb) => {
-    //     cb(null, 'uploads')
-    // },
     destination: './upload/images',
     filename: (req, file, cb) => {
         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
     }
+
+    // destination: (req, file, cb) => {
+    //     cb(null, 'uploads/images')
+    // },
+    // filename: (req, file, cb) => {
+    //     cb(null, file.fieldname + '-' + Date.now())
+    // }
 });
 
 const upload=multer({storage: storage});
 
 app.use('/images', express.static('upload/images'))
+
+app.post('/upload', upload.single('tryonPhoto'), (req,res)=>{
+    res.json({
+        success: true,
+        image_url: `http://localhost:${port}/images/${req.file.filename}`
+    })
+})
 
 app.post('/signup', upload.single('tryonPhoto'), async(req, res)=>{
     let check=await CustomerModel.findOne({email: req.body.email});
