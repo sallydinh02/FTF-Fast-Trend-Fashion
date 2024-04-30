@@ -14,7 +14,7 @@ const CustomerSchema = new mongoose.Schema({
       type: String,
       required: true
    },
-   tryonPhotos:{
+   tryonPhoto:{
       type: String,
       required: true
       //default: ""
