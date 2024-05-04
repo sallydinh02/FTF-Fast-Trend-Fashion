@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 
 import Button from './Button'
 
+import iconClose from '../assets/images/iconclose.png'
+
 const ProductView = props => {
 //     const navigate = useNavigate();
 
@@ -29,6 +31,9 @@ const ProductView = props => {
     const [descriptionExpand, setDescriptionExpand] = useState(false)
 
     const [quantity, setQuantity] = useState(1)
+
+    const [modal, setModal]=useState(false)
+    const [popupContent, setPopupContent]=useState({})
 
     const updateQuantity = (type) => {
         if (type === 'plus') {
@@ -56,9 +61,18 @@ const ProductView = props => {
         })
     }
 
-    const goToBorrow = () => {
-        props.history.push('/borrow')
+    const handleClickTryon=(image, title)=>{
+        setPopupContent({image, title})
+        setModal(true)
     }
+
+    const closePopup = () => {
+        setModal(false);
+    };
+
+    // const goToBorrow = () => {
+    //     props.history.push('/borrow')
+    // }
 
     return (
         <div className="product">
@@ -91,12 +105,28 @@ const ProductView = props => {
                     <div className="product__info__item__content"> {product.description}</div>
                 </div> */}
                 <div className="product__info__item">
-                    <Button onClick={() => borrowBook()}>AI Try on</Button>
+                    <Button onClick={() => handleClickTryon(product.image, product.name)}>AI Try on</Button>
+                    {modal && (
+                        <div className="popup">
+                            <div className="popup-content">
+                                {/* <div className="description">
+                                    
+                                </div> */}
+                                <img className="close-btn" src={iconClose} alt="" onClick={closePopup}></img>
+                                <p>{popupContent.title}</p>
+                                <img src={popupContent.image} alt="Popup" />
+                                
+                                {/* <button onClick={closePopup}>
+                                    
+                                </button> */}
+                            </div>
+                        </div>
+                    )}
+                    
+                    
                 </div>
                 <div className="product__info__item">
-                    <Button onClick={() => borrowBook()}>Buy now</Button>
-                </div>
-                <div className="product__info__item">
+                <Button onClick={() => borrowBook()}>Buy now</Button>
                     <Button onClick={() => borrowBook()}>Add to cart</Button>
                 </div>
             </div>
