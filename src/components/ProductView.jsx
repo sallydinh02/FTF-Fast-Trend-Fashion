@@ -105,20 +105,25 @@ const ProductView = props => {
                     <div className="product__info__item__content"> {product.description}</div>
                 </div> */}
                 <div className="product__info__item">
-                    <Button onClick={() => handleClickTryon(product.image, product.name)}>AI Try on</Button>
+                    <Button onClick={() => handleClickTryon(product.image02, "Product")}>AI Try on</Button>
                     {modal && (
                         <div className="popup">
                             <div className="popup-content">
-                                {/* <div className="description">
+                                {/* <img className="close-btn" src={iconClose} alt="" width="10%" height="10%" onClick={closePopup}></img> */}
+                                <p className="close-btn" onClick={closePopup}>X</p>
+                                <div className="popup-content__product">
                                     
-                                </div> */}
-                                <img className="close-btn" src={iconClose} alt="" onClick={closePopup}></img>
-                                <p>{popupContent.title}</p>
-                                <img src={popupContent.image} alt="Popup" />
+                                    <p>{popupContent.title}</p>
+                                    <img src={popupContent.image} alt="" />
+                                    
+                                </div>
+                                <div className="popup-content__product">
                                 
-                                {/* <button onClick={closePopup}>
+                                    <p>{popupContent.title}</p>
+                                    <img src={popupContent.image} alt="" />
                                     
-                                </button> */}
+                                </div>
+                                
                             </div>
                         </div>
                     )}
