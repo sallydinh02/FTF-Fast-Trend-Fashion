@@ -110,20 +110,20 @@ const ProductView = props => {
                         <div className="popup">
                             <div className="popup-content">
                                 {/* <img className="close-btn" src={iconClose} alt="" width="10%" height="10%" onClick={closePopup}></img> */}
+                                
+                                <div className="popup-content__product">
+                                    
+                                    <p>{popupContent.title}</p>
+                                    <img src={popupContent.image} alt="" />
+                                    
+                                </div>
+                                <div className="popup-content__product">
+                                
+                                    <p>{popupContent.title}</p>
+                                    <img src={popupContent.image} alt="" />
+                                    
+                                </div>
                                 <p className="close-btn" onClick={closePopup}>X</p>
-                                <div className="popup-content__product">
-                                    
-                                    <p>{popupContent.title}</p>
-                                    <img src={popupContent.image} alt="" />
-                                    
-                                </div>
-                                <div className="popup-content__product">
-                                
-                                    <p>{popupContent.title}</p>
-                                    <img src={popupContent.image} alt="" />
-                                    
-                                </div>
-                                
                             </div>
                         </div>
                     )}
