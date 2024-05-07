@@ -16,7 +16,7 @@ const CustomerInfo = () => {
 
     const handleUserSubmit = (e) => {
         e.preventDefault()
-        axios.put("http://localhost:4000/signup-info/:id", { address, phoneNumber, cardNumber },{
+        axios.put("http://localhost:4000/customer-info/:id", { address, phoneNumber, cardNumber },{
             headers: {
               Authorization: localStorage.getItem('token') // Attach JWT token from localStorage
             }
