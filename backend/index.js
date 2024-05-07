@@ -46,13 +46,16 @@ app.post('/login', async(req, res)=>{
         // true if same password as in database
         const passCompare=req.body.password === customer.password;
         if (passCompare){
+            // const data={
+            //     customer:{
+            //         _id: customer._id
+            //     }
+            // }
             const data={
-                customer:{
-                    id: customer.id
-                }
+                customerID: customer._id
             }
             const token=jwt.sign(data,'secret_ecom');
-            res.json({success:true, token});
+            res.json({success:true, _id: customer._id, token: token});
         }
         else{
             res.json({success:false, error: "Wrong password"});
@@ -98,6 +101,7 @@ app.post('/signup', upload.single('tryonPhoto'), async(req, res)=>{
         cart[i]=0;
     }
     const customer=new CustomerModel({
+        _id:new mongoose.Types.ObjectId(),
         name: req.body.name,
         email:req.body.email,
         password:req.body.password,
@@ -110,46 +114,89 @@ app.post('/signup', upload.single('tryonPhoto'), async(req, res)=>{
 
     await customer.save();
 
+    // const data={
+    //     customer:{
+    //         _id: customer._id
+    //     }
+    // }
     const data={
-        customer:{
-            id: customer.id
-        }
+        customerID: customer._id
     }
 
     const token=jwt.sign(data, 'secret_ecom');
-    res.json({success: true, token: token, resBody: req.body})
+    res.json({success: true, _id: customer._id, token: token, resBody: req.body})
     // res.json({
     //     success: true,
     //     image_url: `http://localhost:${port}/images/${req.file.filename}`
     // })
 })
 
-function verifyToken(req, res, next) {
-    const token = req.header('Authorization');
-    if (!token) {
-      return res.status(403).json({success: false, error: 'No token found' });
-    }
-  
-    // jwt.verify(token.replace('Bearer ', ''), SECRET_KEY, (err, decoded) => {
-    //   if (err) {
-    //     return res.status(401).json({ message: 'Token is invalid' });
-    //   }
-    //   req.user = decoded; // Set user information in request object for further use
-    //   next();
-    // });
-    try {
-        // Verify token
-        const decoded = jwt.verify(token, 'secret_ecom');
-    
-        // Add user from payload to request object
+// const checkAuth=(req, res, next)=>{
+//     let token;
+//     if (req.headers.authorization)
+//     {
+//         try {
+//             token = req.headers.authorization.split(" ")[1];
+//             console.log(token);
+//             //decodes token id
+//             const decoded = jwt.verify(token, 'secret_ecom');
+//             req.customerID=decoded;
+//             next();
+//           } catch (error) {
+//             res.status(401);
+//             throw new Error("Not authorized, token failed");
+//             //throw new Error("Not authorized, token failed");
+//           }
+//     }
+//     if (!token) {
+//         res.status(401);
+//         throw new Error("Not authorized, no token");
+//       }
+//     }
 
-        req.user = decoded;
+// app.get("/getUserInfo/:userid",checkAuth, async(req,res,next)
+app.get("/getCustomerInfo/:userid", async(req,res, next)=>{
+    // if(localStorage.getItem('auth-token'))
+    // {
+
+    // }
+    const customer=await CustomerModel.findById({_id: req.params.userid})
+    if (customer){
+        tryonPhoto=customer.tryonPhoto
+        res.json({success: true, tryonPhoto: tryonPhoto})
+    }
+    else{
+        return res.json({success: false, error: "Can't get customer data"})
+    }
+    }
+);
+
+// function verifyToken(req, res, next) {
+//     const token = req.header('Authorization');
+//     if (!token) {
+//       return res.status(403).json({success: false, error: 'No token found' });
+//     }
+  
+//     // jwt.verify(token.replace('Bearer ', ''), SECRET_KEY, (err, decoded) => {
+//     //   if (err) {
+//     //     return res.status(401).json({ message: 'Token is invalid' });
+//     //   }
+//     //   req.user = decoded; // Set user information in request object for further use
+//     //   next();
+//     // });
+//     try {
+//         // Verify token
+//         const decoded = jwt.verify(token, 'secret_ecom');
     
-        next();
-      } catch (err) {
-        res.status(401).json({success: false, error: 'Invalid token' });
-      }
-  }
+//         // Add user from payload to request object
+
+//         req.user = decoded;
+    
+//         next();
+//       } catch (err) {
+//         res.status(401).json({success: false, error: 'Invalid token' });
+//       }
+//   }
 
 // app.put('/signup-info/:id', async(req, res)=>{
 //     //const token=await localStorage.getItem('token');
