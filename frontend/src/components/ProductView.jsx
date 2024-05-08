@@ -80,7 +80,7 @@ const ProductView = props => {
         props.history.push({
             state: product.slug,
             pathname:'/borrow', 
-            state: {image: product.image, title: product.name, author: product.price}, 
+            state: {image: product.image, name: product.name, price: product.price}, 
         })
     }
 //, resultImage, title2

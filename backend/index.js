@@ -6,7 +6,9 @@ const port=4000
 const path=require("path")
 const jwt=require("jsonwebtoken")
 const multer=require("multer")
+const fs = require('fs')
 const { createCipheriv } = require("crypto")
+const ProductModel=require("./model/Product")
 
 const app = express()
 app.use(express.json())
@@ -17,6 +19,7 @@ mongoose.connect("mongodb+srv://sallymyky02:sally139@cluster0.lencr1d.mongodb.ne
 app.get("/", (req, res)=>{
     res.send("Express app is running")
 })
+
 
 // app.post("/login", (req, res) => {
 //     const {email, password} = req.body;
@@ -89,6 +92,59 @@ app.post('/upload', upload.single('tryonPhoto'), (req,res)=>{
         success: true,
         image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
+})
+
+app.use('/productImages', express.static('upload/productImages'))
+
+app.post('/uploadProductImg', upload.single('productImg'), (req,res)=>{
+    res.json({
+        success: true,
+        image_url: `http://localhost:${port}/productImages/${req.file.filename}`
+    })
+})
+
+app.post('/addproduct', async(req, res)=>{
+    const product=new ProductModel({
+        id: req.body.id,
+        name: req.body.name,
+        category: req.body.category,
+        type: req.body.type,
+        image: req.body.image,
+        image02: req.body.image02,
+        image03: req.body.image03,
+        image04: req.body.image04,
+        price: req.body.price,
+        slug: req.body.slug,
+    });
+    console.log(product);
+    await product.save();
+    console.log("Saved")
+    res.json({
+        success:true,
+        name:req.body.name,
+        id:req.body.id,
+        slug:req.body.slug,
+        image: req.body.image,
+        image02:req.body.image02
+    })
+})
+
+app.post('/removeproduct', async(req, res)=>{
+    await ProductModel.findOneAndDelete({id: req.body.id});
+    console.log("Removed");
+    res.json({
+        success:true,
+        name:req.body.name,
+        slug:req.body.slug,
+        image: req.body.image,
+        image02:req.body.image02
+    })
+})
+
+app.get('/allproducts', async(req, res)=>{
+    let products=await ProductModel.find({});
+    console.log("All products Fetched");
+    res.send(products);
 })
 
 app.post('/signup', upload.single('tryonPhoto'), async(req, res)=>{

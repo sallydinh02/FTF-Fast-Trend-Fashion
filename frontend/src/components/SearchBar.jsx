@@ -59,7 +59,7 @@ function SearchBar({ placeholder, data }) {
           })}
         </div>
       )}
-      {/* <div className="dataResult">
+      {/*<div className="dataResult">
           {data
             .filter((item) => {
               const searchTerm = wordEntered.toLowerCase();
@@ -79,7 +79,7 @@ function SearchBar({ placeholder, data }) {
                 {item.title}
               </div>
             ))}
-        </div> */}
+          </div>*/}
       
     </div>
   );
