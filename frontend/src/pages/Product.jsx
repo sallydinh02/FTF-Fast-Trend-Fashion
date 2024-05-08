@@ -20,7 +20,7 @@ const Product = props => {
     }, [product])
 
     return (
-        <Helmet title={product.title}>
+        <Helmet title={product.name}>
             <Section>
                 <SectionBody>
                     <ProductView product={product}/>

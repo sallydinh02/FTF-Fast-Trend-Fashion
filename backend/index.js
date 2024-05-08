@@ -6,7 +6,6 @@ const port=4000
 const path=require("path")
 const jwt=require("jsonwebtoken")
 const multer=require("multer")
-const fs = require('fs')
 const { createCipheriv } = require("crypto")
 const ProductModel=require("./model/Product")
 
@@ -137,7 +136,8 @@ app.post('/removeproduct', async(req, res)=>{
         name:req.body.name,
         slug:req.body.slug,
         image: req.body.image,
-        image02:req.body.image02
+        image02:req.body.image02,
+        price:req.body.price
     })
 })
 

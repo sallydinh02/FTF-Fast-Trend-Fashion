@@ -6,7 +6,7 @@ import Section, { SectionTitle, SectionBody } from '../components/Section'
 import FeaturesCard from '../components/FeaturesCard'
 import Grid from '../components/Grid'
 import ProductCard from '../components/ProductCard'
-import productData from '../assets/data-loaded/products'
+//import productData from '../assets/data-loaded/products'
 import SimpleImageSliderHome from '../components/SimpleImageSliderHome'
 
 // useLayoutEffect(() => {
@@ -18,6 +18,13 @@ const Home = () => {
     //     const bgcolor = "#FFFFFF"
     //     document.body.style.background = bgcolor;
     //   });
+    const [products, setProducts]=useState([]);
+    useEffect(()=>{
+        fetch("http://localhost:4000/allproducts")
+        .then(res=>res.json())
+        .then(data=>setProducts(data))
+        .catch(err => console.error(err));
+    })
     return (
         
         <Helmet title="Home">
@@ -42,7 +49,7 @@ const Home = () => {
                         gap={100}
                     >
                         {
-                            productData.getAllProducts().map((item, index) => (
+                            products.map((item, index) => (
                                 <ProductCard
                                     key={index}
                                     image={item.image}
