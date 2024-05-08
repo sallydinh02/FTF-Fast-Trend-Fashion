@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Helmet from '../components/Helmet'
+import { useDispatch, useSelector } from "react-redux";
+import { setCustomerLogin } from '../actions/authAction';
 //import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Login = () => {
+    const dispatch = useDispatch();
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
     const history = useHistory()
@@ -13,13 +16,23 @@ const Login = () => {
     // handle user submit information to login
     const handleUserSubmit = async (e) => {
         e.preventDefault()
-        axios.post("http://localhost:4000/login", { email, password })
+        axios.post("http://localhost:4000/login", 
+        { email, password },{
+          headers: {
+            Accept: 'application/json',
+        }
+        })
         .then(result => 
           {
             console.log(result)
             if(result.data.success)
             {
+              const customerId=result.data._id;
+              //const customerId={id};
+              //console.log(result.data._id);
               localStorage.setItem('auth-token',result.data.token);
+              dispatch(setCustomerLogin(true, customerId));
+              //result.setHeader("auth-token", result.data.token);
               history.push("/")
             }
             else

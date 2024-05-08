@@ -46,7 +46,7 @@ const Signup = () => {
 
         if(responseData.success)
         {
-            localStorage.setItem('auth-token',responseData.token);
+            //localStorage.setItem('auth-token',responseData.token);
             newUser.tryonPhoto=responseData.image_url;
             console.log({'name': newUser.name, 'email': newUser.email, 'address': newUser.address, 'phoneNumber': newUser.phoneNumber, 'cardNumber': newUser.cardNumber, 'tryonPhoto': newUser.tryonPhoto})
             await fetch('http://localhost:4000/signup',{
@@ -59,6 +59,7 @@ const Signup = () => {
             }).then((resp)=>resp.json()).then((data)=>{
                 if (data.success){
                     localStorage.setItem('auth-token',data.token);
+                    //resp.setHeader("auth-token", data.token);
                     history.push("/login")
                     //alert("New user created")
                 }

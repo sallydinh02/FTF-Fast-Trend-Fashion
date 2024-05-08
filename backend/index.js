@@ -131,28 +131,37 @@ app.post('/signup', upload.single('tryonPhoto'), async(req, res)=>{
     // })
 })
 
-// const checkAuth=(req, res, next)=>{
-//     let token;
-//     if (req.headers.authorization)
-//     {
-//         try {
-//             token = req.headers.authorization.split(" ")[1];
-//             console.log(token);
-//             //decodes token id
-//             const decoded = jwt.verify(token, 'secret_ecom');
-//             req.customerID=decoded;
-//             next();
-//           } catch (error) {
-//             res.status(401);
-//             throw new Error("Not authorized, token failed");
-//             //throw new Error("Not authorized, token failed");
-//           }
-//     }
-//     if (!token) {
-//         res.status(401);
-//         throw new Error("Not authorized, no token");
-//       }
-//     }
+const checkAuth=(req, res, next)=>{
+    const token=req.headers['auth-token']
+    // if (token)
+    // {
+        // try {
+        //     token = req.headers.authorization.split(" ")[1];
+        //     console.log(token);
+        //     //decodes token id
+        //     const decoded = jwt.verify(token, 'secret_ecom');
+        //     req.customerID=decoded;
+        //     next();
+        //   } catch (error) {
+        //     res.status(401);
+        //     throw new Error("Not authorized, token failed");
+        //     //throw new Error("Not authorized, token failed");
+        //   }
+    //}
+    if (!token) {
+        res.status(401).send("Invalid token");
+      }
+    else
+    {
+        try{
+            const data=jwt.verify(token, 'secret_ecom');
+            req.customerID=data.customerID;
+            next();
+        }catch(error){
+            res.status(401).send("Please authenticate using a valid token")
+        }
+    }
+    } 
 
 // app.get("/getUserInfo/:userid",checkAuth, async(req,res,next)
 app.get("/getCustomerInfo/:userid", async(req,res, next)=>{
@@ -162,13 +171,16 @@ app.get("/getCustomerInfo/:userid", async(req,res, next)=>{
     // }
     const customer=await CustomerModel.findById({_id: req.params.userid})
     if (customer){
+        customerID=customer._id
         tryonPhoto=customer.tryonPhoto
-        res.json({success: true, tryonPhoto: tryonPhoto})
+        res.json({success: true, customerID: customerID, tryonPhoto: tryonPhoto})
     }
     else{
         return res.json({success: false, error: "Can't get customer data"})
     }
-    }
+    // returnValue=req.customerID;
+    // res.json({customerID: returnValue});
+}
 );
 
 // function verifyToken(req, res, next) {

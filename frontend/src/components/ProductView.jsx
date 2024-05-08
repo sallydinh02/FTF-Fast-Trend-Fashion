@@ -3,12 +3,14 @@ import {Routes, Route} from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 import { withRouter } from 'react-router'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { useHistory } from "react-router-dom";
 
 import Button from './Button'
 
 import iconClose from '../assets/images/iconclose.png'
+import axios from 'axios'
+//const jwt=require('jsonwebtoken')
 
 const ProductView = props => {
 //     const navigate = useNavigate();
@@ -35,6 +37,9 @@ const ProductView = props => {
     const [modal, setModal]=useState(false)
     const [popupContent, setPopupContent]=useState({})
 
+    const customerId = useSelector(state => state.customerId);
+    const [userPhoto, setUserPhoto] = useState('');
+
     const updateQuantity = (type) => {
         if (type === 'plus') {
             setQuantity(quantity + 1)
@@ -43,8 +48,26 @@ const ProductView = props => {
         }
     }
 
+    const token=localStorage.getItem('auth-token');
+    // const decodedToken = jwt.verify(token, 'secret_ecom');
+    // // Extract the data from the decoded token
+    // const customerID = decodedToken.customerID;
+    if (token){
+        axios.get("http://localhost:4000/getCustomerInfo/"+customerId,{
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+        .then(response => {
+            setUserPhoto(response.data.tryonPhoto);
+        })
+        .catch(error => {
+            console.error('Error fetching photo of user:', error);
+        })
+    }
+
     useEffect(() => {
-        setPreviewImg(product.image)
+        setPreviewImg(product.image);
         // const bgcolor = "#DDFFF9"
         // document.body.style.background = bgcolor;
     }, [product])
@@ -60,9 +83,9 @@ const ProductView = props => {
             state: {image: product.image, title: product.name, author: product.price}, 
         })
     }
-
-    const handleClickTryon=(image, title)=>{
-        setPopupContent({image, title})
+//, resultImage, title2
+    const handleClickTryon=(originalImage, title1)=>{
+        setPopupContent({originalImage, title1})
         setModal(true)
     }
 
@@ -105,25 +128,27 @@ const ProductView = props => {
                     <div className="product__info__item__content"> {product.description}</div>
                 </div> */}
                 <div className="product__info__item">
-                    <Button onClick={() => handleClickTryon(product.image02, "Product")}>AI Try on</Button>
+                    <Button onClick={() => handleClickTryon(userPhoto, "Original photo")}>AI Try on</Button>
                     {modal && (
                         <div className="popup">
+                            
                             <div className="popup-content">
                                 {/* <img className="close-btn" src={iconClose} alt="" width="10%" height="10%" onClick={closePopup}></img> */}
                                 
-                                <div className="popup-content__product">
+                                <div className="popup-content__original">
                                     
-                                    <p>{popupContent.title}</p>
-                                    <img src={popupContent.image} alt="" />
+                                    <p>{popupContent.title1}</p>
+                                    <img src={popupContent.originalImage} alt=""/>
                                     
                                 </div>
-                                <div className="popup-content__product">
+                                <div className="popup-content__result">
                                 
-                                    <p>{popupContent.title}</p>
-                                    <img src={popupContent.image} alt="" />
+                                    <p>{popupContent.title1}</p>
+                                    <img src={popupContent.originalImage} alt=""/>
                                     
                                 </div>
-                                <p className="close-btn" onClick={closePopup}>X</p>
+                                
+                                <div className="close-btn" onClick={closePopup}><p>X</p></div>
                             </div>
                         </div>
                     )}

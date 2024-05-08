@@ -130,16 +130,23 @@
                 height: 100%;
                 background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
                 display: flex;
-                flex-direction: column;
-                gap: 10px;
                 justify-content: center;
                 align-items: center;
-                z-index: 9999;
+                z-index: 500;
               }
               
               .popup-content {
                 position: relative;
                 background-color: white;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                // left: 30%;
+                // right: 30%;
+                // bottom: 30%;
+                // top: 30%;
+                width: 50%;
+                height: 50%;
                 padding: 20px;
                 border-radius: 8px;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* shadow effect */
@@ -148,53 +155,45 @@
                 gap: 30px;
               }
 
-              .close-btn {
-                //margin-top: 10px;
-                //padding: 8px 16px;
-                //border: none;
-                //border-radius: 4px;
-                //background-color: #007bff; /* blue button color */
-                position: absolute;
-                top: 0;
-                right: 0;
-                //left: 10px;
-                padding: 18px;
-                font-size: 30px;
-                color: white;
-                cursor: pointer;
-              }
-
-              &__product{
-                display:flex
-              }
+            //   &__original{
+            //     display:flex
+            //   }
               
               .popup-content img {
                 margin-top: 15px;
-                max-width: 90%;
-                height: auto;
+                // max-width: 100%;
+                // max-height: 80%;
+                width: 90%;
+                height: 90%;
               }
               
               .popup-content p {
                 color: black;
                 font-size: 28px;
-                //margin-top: 10px;
+                margin-top: 5px;
                 font-weight: 500;
               }
-            //   .close-btn {
-            //     position: fixed;
-            //     // top: 200px;
-            //     align-items: center;
-            //     right: 50px;
-            //     // justify-content: right;
-            //     // align-items: right;
-            //     cursor: pointer;
-            //     width: 5%; 
-            //     height: 5%; 
-            //   }
-              
-              .close-btn:hover{
-                background-color: #e5e7ea;
-              }
+                .close-btn {
+                    position: absolute;
+                    // top: 200px;
+                    //align-items: center;
+                    //right: 50px;
+                    // justify-content: right;
+                    // align-items: right;
+                    // top: 0;
+                    // right: 0;
+                    top:0;
+                    right:0;
+                    padding: 18;
+                    cursor: pointer;
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 5%; 
+                    height: 5%; 
+                }
+                .close-btn:hover{
+                    background-color: #e5e7ea;
+                }
               
             //   .popup-content button:hover {
             //     //background-color: #0056b3; /* darker blue color on hover */
