@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 
 import Helmet from '../components/Helmet'
@@ -8,6 +8,7 @@ import Grid from '../components/Grid'
 import ProductCard from '../components/ProductCard'
 //import productData from '../assets/data-loaded/products'
 import SimpleImageSliderHome from '../components/SimpleImageSliderHome'
+import { ShopContext } from '../Context/ShopContext'
 
 // useLayoutEffect(() => {
 //     document.body.style.backgroundColor = "#DDFFF9"
@@ -18,13 +19,14 @@ const Home = () => {
     //     const bgcolor = "#FFFFFF"
     //     document.body.style.background = bgcolor;
     //   });
-    const [products, setProducts]=useState([]);
-    useEffect(()=>{
-        fetch("http://localhost:4000/allproducts")
-        .then(res=>res.json())
-        .then(data=>setProducts(data))
-        .catch(err => console.error(err));
-    })
+    // const [products, setProducts]=useState([]);
+    const {products}=useContext(ShopContext)
+    // useEffect(()=>{
+    //     fetch("http://localhost:4000/allproducts")
+    //     .then(res=>res.json())
+    //     .then(data=>setProducts(data))
+    //     .catch(err => console.error(err));
+    // })
     return (
         
         <Helmet title="Home">
@@ -49,13 +51,14 @@ const Home = () => {
                         gap={100}
                     >
                         {
-                            products.map((item, index) => (
+                            products.map((product) => (
                                 <ProductCard
-                                    key={index}
-                                    image={item.image}
-                                    name={item.name}
-                                    price={item.price}
-                                    slug={item.slug}
+                                    // key={index}
+                                    id={product.id}
+                                    image={product.image}
+                                    name={product.name}
+                                    price={product.price}
+                                    slug={product.slug}
                                 />
                             ))
                         }

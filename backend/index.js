@@ -136,8 +136,7 @@ app.post('/removeproduct', async(req, res)=>{
         name:req.body.name,
         slug:req.body.slug,
         image: req.body.image,
-        image02:req.body.image02,
-        price:req.body.price
+        image02:req.body.image02
     })
 })
 
@@ -146,6 +145,19 @@ app.get('/allproducts', async(req, res)=>{
     console.log("All products Fetched");
     res.send(products);
 })
+
+app.get('/allproducts/:id', async(req, res)=>{
+    try{
+        const product=await ProductModel.findOne({id: req.params.id});
+        if(!product){
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.json(product);
+    }
+    catch(err){
+        res.status(500).json({ error: err.message });
+    }
+});
 
 app.post('/signup', upload.single('tryonPhoto'), async(req, res)=>{
     let check=await CustomerModel.findOne({email: req.body.email});

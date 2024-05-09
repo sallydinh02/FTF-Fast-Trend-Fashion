@@ -16,7 +16,7 @@ const Routes = () => {
     return (
         <Switch>
             <Route path='/' exact component={Home}/>
-            <Route path='/searchproduct/:slug' component={Product}/>
+            <Route path='/searchproduct/:id' component={Product}/>
             <Route path='/ftf-seller' component={SellFTF}/>
             <Route path='/searchproduct' component={SearchProduct}/>
             <Route path='/orders' component={Orders}/>

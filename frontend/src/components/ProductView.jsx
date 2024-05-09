@@ -37,7 +37,7 @@ const ProductView = props => {
     const [modal, setModal]=useState(false)
     const [popupContent, setPopupContent]=useState({})
 
-    const customerId = useSelector(state => state.customerId);
+    const customerId = useSelector(state => state.auth.customerId);
     const [userPhoto, setUserPhoto] = useState('');
 
     const updateQuantity = (type) => {
