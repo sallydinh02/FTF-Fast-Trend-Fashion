@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Helmet from '../components/Helmet'
 import tryonPhotoEx from '../assets/images/example-photo.jpg'
+//import tryonPhotoEx from '../assets/images/example-photo-old.jpg'
 
 const Signup = () => {
     const [tryonPhoto, setTryonPhoto]=useState(false);
@@ -88,7 +89,7 @@ const Signup = () => {
                         <p>Upload your full-body photo. Our AI feature will help you try on fashion items virtually</p>
                             
                         <label htmlFor="file-input">
-                            <img src={tryonPhoto?URL.createObjectURL(tryonPhoto):tryonPhotoEx} alt="" width="95%" height="95%"></img>
+                            <img src={tryonPhoto?URL.createObjectURL(tryonPhoto):tryonPhotoEx} alt="" width="150%" height="150%"></img>
                         </label>
                         <input onChange={imageHandler} type="file" name='tryonPhoto' id='file-input'></input>
                     </div>

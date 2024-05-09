@@ -93,12 +93,12 @@ app.post('/upload', upload.single('tryonPhoto'), (req,res)=>{
     })
 })
 
-app.use('/productImages', express.static('upload/productImages'))
+//app.use('/productImages', express.static('upload/productImages'))
 
 app.post('/uploadProductImg', upload.single('productImg'), (req,res)=>{
     res.json({
         success: true,
-        image_url: `http://localhost:${port}/productImages/${req.file.filename}`
+        image_url: `http://localhost:${port}/images/${req.file.filename}`
     })
 })
 
