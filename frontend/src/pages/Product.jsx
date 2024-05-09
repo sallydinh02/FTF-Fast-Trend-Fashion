@@ -29,12 +29,13 @@ const Product = ({ match }) => {
     //const {productID}=useParams();
     useEffect(() => {
     const fetchProduct=async(req, res)=>{
-        const response = await axios.get(`http://localhost:4000/allproducts/${match.params.id}`);
+        const response = await axios.get(`http://localhost:4000/allproducts/${match.params.slug}`);
         setProduct(response.data);
     };
-    fetchProduct();
-        //window.scrollTo(0,0)
-        }, [match.params.id])
+    fetchProduct(()=>{
+        window.scrollTo(0,0);
+    })
+    }, [match.params.id])
 
     return (
         <Helmet>

@@ -146,9 +146,9 @@ app.get('/allproducts', async(req, res)=>{
     res.send(products);
 })
 
-app.get('/allproducts/:id', async(req, res)=>{
+app.get('/allproducts/:slug', async(req, res)=>{
     try{
-        const product=await ProductModel.findOne({id: req.params.id});
+        const product=await ProductModel.findOne({slug: req.params.slug});
         if(!product){
             return res.status(404).json({ message: 'Product not found' });
         }
