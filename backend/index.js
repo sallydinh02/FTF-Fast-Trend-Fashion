@@ -6,25 +6,29 @@ const port=4000
 const path=require("path")
 const jwt=require("jsonwebtoken")
 const multer=require("multer")
+//const ngrok=require("ngrok")
 const { createCipheriv } = require("crypto")
 const ProductModel=require("./model/Product")
 
 const app = express()
 app.use(express.json())
-// Allow requests from both localhost:3000 and your FastAPI backend domain
-const allowedOrigins = ['http://localhost:3000', 'https://172c-34-83-247-8.ngrok-free.app/', 'https://172c-34-83-247-8.ngrok-free.app/try-on/image'];
+// // Allow requests from both localhost:3000 and your FastAPI backend domain
+// const allowedOrigins = ["*"];
 
-// Enable CORS with options
+// // Enable CORS with options
+// app.use(cors({
+//   origin: function (origin, callback) {
+//     // Check if the origin is in the allowedOrigins array or if it's undefined (which happens for same-origin requests)
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true // Allow credentials (e.g., cookies)
+// }));
 app.use(cors({
-  origin: function (origin, callback) {
-    // Check if the origin is in the allowedOrigins array or if it's undefined (which happens for same-origin requests)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true // Allow credentials (e.g., cookies)
+    credentials: true
 }));
 
 mongoose.connect("mongodb+srv://sallymyky02:sally139@cluster0.lencr1d.mongodb.net/ecommerce");
@@ -35,6 +39,11 @@ app.get("/", (req, res)=>{
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running on port ${port}`);
+    // ngrok.connect(port).then(ngrokUrl=>{
+    //     console.log(`ngrok tunnel in ${ngrokUrl}`);
+    // }).catch(error =>{
+    //     console.log(error);
+    // })
 });
 
 // app.post("/login", (req, res) => {
