@@ -85,35 +85,100 @@ const ProductView = props => {
         })
     }
 
-    const postTryon = async()=>{
-        await fetch("https://172c-34-83-247-8.ngrok-free.app/try-on/image",{
-            method: 'POST',
-            credentials: 'include',
-            headers:{
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                userImg: userPhoto,
-                clothImg: product.image02
-            })
-    })
-    .then(result=>result.json())
-    .then(data=>{
-        if (data.message=='success'){
-            setTryonResult(data.result)
+    async function convertImagesToBytes(imageUrls) {
+        const bytesArray = [];
+    
+        for (const imageUrl of imageUrls) {
+            const response = await fetch(imageUrl);
+            const blob = await response.blob();
+    
+            const arrayBuffer = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+    
+                reader.onload = () => {
+                    resolve(reader.result);
+                };
+    
+                reader.onerror = error => {
+                    reject(error);
+                };
+    
+                reader.readAsArrayBuffer(blob);
+            });
+    
+            bytesArray.push(new Uint8Array(arrayBuffer));
         }
-    })
-    .catch(error => {
-        console.error('Error getting try-on image result:', error);
-        alert('Error try on. Try again.');
-      });
-}
+    
+        return bytesArray;
+    }
+    
+    function sendImagesToFastAPI(bytesArray) {
+        const formData = new FormData();
+    
+        for (let i = 0; i < bytesArray.length; i++) {
+            formData.append(`image${i + 1}`, new Blob([bytesArray[i]]), `image${i + 1}.jpg`);
+        }
+    
+        fetch('https://e91d-34-67-53-63.ngrok-free.app/try-on/image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(result =>result.json())
+        .then(data=>{
+            if (data["message"]=="success"){
+                setTryonResult(data["result"])
+                console.log(data["result"])
+            }
+            else{
+                console.log("Not receive data result")
+            }
+        })
+        .catch(error => {
+            console.error('Error getting try-on image result:', error);
+            alert('Error try on. Try again.');
+          });
+    }
+    
+
+//     const postTryon = async()=>{
+//         await fetch("https://172c-34-83-247-8.ngrok-free.app/try-on/image",{
+//             method: 'POST',
+//             credentials: 'include',
+//             headers:{
+//                 Accept: 'application/json',
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify({
+//                 userImg: userPhoto,
+//                 clothImg: product.image02
+//             })
+//     })
+//     .then(result=>result.json())
+//     .then(data=>{
+//         if (data.message=='success'){
+//             setTryonResult(data.result)
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error getting try-on image result:', error);
+//         alert('Error try on. Try again.');
+//       });
+// }
 //, resultImage, title2
+
+    const imageUrls=[userPhoto, product.image02]
+
     const handleClickTryon=(originalImage, title1)=>{
-        postTryon();
-        const title2="Try-on result"
-        setPopupContent({originalImage, title1, tryonResult, title2})
+        //postTryon();
+        convertImagesToBytes(imageUrls)
+        .then(bytesArray => {
+            sendImagesToFastAPI(bytesArray);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+        //const title2="Try-on result"
+        setPopupContent({originalImage, title1})
         setModal(true)
     }
 
@@ -171,8 +236,8 @@ const ProductView = props => {
                                 </div>
                                 <div className="popup-content__result">
                                 
-                                    <p>{popupContent.title2}</p>
-                                    <img src={popupContent.tryonResult} alt=""/>
+                                    <p>Try-on result</p>
+                                    <img src={tryonResult} alt=""/>
                                     
                                 </div>
                                 
