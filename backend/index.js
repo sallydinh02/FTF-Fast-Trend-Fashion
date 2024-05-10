@@ -11,7 +11,21 @@ const ProductModel=require("./model/Product")
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+// Allow requests from both localhost:3000 and your FastAPI backend domain
+const allowedOrigins = ['http://localhost:3000', 'https://172c-34-83-247-8.ngrok-free.app/', 'https://172c-34-83-247-8.ngrok-free.app/try-on/image'];
+
+// Enable CORS with options
+app.use(cors({
+  origin: function (origin, callback) {
+    // Check if the origin is in the allowedOrigins array or if it's undefined (which happens for same-origin requests)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // Allow credentials (e.g., cookies)
+}));
 
 mongoose.connect("mongodb+srv://sallymyky02:sally139@cluster0.lencr1d.mongodb.net/ecommerce");
 
@@ -19,6 +33,9 @@ app.get("/", (req, res)=>{
     res.send("Express app is running")
 })
 
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Server is running on port ${port}`);
+});
 
 // app.post("/login", (req, res) => {
 //     const {email, password} = req.body;
@@ -337,11 +354,11 @@ app.get("/getCustomerInfo/:userid", async(req,res, next)=>{
 // })
 
 
-app.listen(port, (error) => {
-    if (!error){
-        console.log("server is running")
-    }
-    else{
-        console.log("Error: "+error)
-    }
-})
+// app.listen(port, (error) => {
+//     if (!error){
+//         console.log("server is running")
+//     }
+//     else{
+//         console.log("Error: "+error)
+//     }
+// })

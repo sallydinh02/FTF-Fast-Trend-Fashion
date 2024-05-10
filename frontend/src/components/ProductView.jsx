@@ -39,6 +39,7 @@ const ProductView = props => {
 
     const customerId = useSelector(state => state.auth.customerId);
     const [userPhoto, setUserPhoto] = useState('');
+    const [tryonResult, setTryonResult] = useState('');
 
     const updateQuantity = (type) => {
         if (type === 'plus') {
@@ -83,9 +84,36 @@ const ProductView = props => {
             state: {image: product.image, name: product.name, price: product.price}, 
         })
     }
+
+    const postTryon = async()=>{
+        await fetch("https://172c-34-83-247-8.ngrok-free.app/try-on/image",{
+            method: 'POST',
+            credentials: 'include',
+            headers:{
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userImg: userPhoto,
+                clothImg: product.image02
+            })
+    })
+    .then(result=>result.json())
+    .then(data=>{
+        if (data.message=='success'){
+            setTryonResult(data.result)
+        }
+    })
+    .catch(error => {
+        console.error('Error getting try-on image result:', error);
+        alert('Error try on. Try again.');
+      });
+}
 //, resultImage, title2
     const handleClickTryon=(originalImage, title1)=>{
-        setPopupContent({originalImage, title1})
+        postTryon();
+        const title2="Try-on result"
+        setPopupContent({originalImage, title1, tryonResult, title2})
         setModal(true)
     }
 
@@ -143,8 +171,8 @@ const ProductView = props => {
                                 </div>
                                 <div className="popup-content__result">
                                 
-                                    <p>{popupContent.title1}</p>
-                                    <img src={popupContent.originalImage} alt=""/>
+                                    <p>{popupContent.title2}</p>
+                                    <img src={popupContent.tryonResult} alt=""/>
                                     
                                 </div>
                                 
