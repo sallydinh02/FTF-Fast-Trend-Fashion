@@ -1,15 +1,15 @@
 const category = [
     {
         display: "Women",
-        genreSlug: "women"
+        categorySlug: "women"
     },
     {
         display: "Men",
-        genreSlug: "men"
+        categorySlug: "men"
     },
     {
         display: "Kids",
-        genreSlug: "kids"
+        categorySlug: "kids"
     }
 ]
 
