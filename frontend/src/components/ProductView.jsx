@@ -208,7 +208,7 @@ const ProductView = props => {
                     <div className="product__info__item__content"> {product.description}</div>
                 </div> */}
                 <div className="product__info__item">
-                    <Button onClick={() => handleClickTryon(userPhoto, "Original photo")}>AI Try on</Button>
+                    <button className="product__info__item__tryonButton" onClick={() => handleClickTryon(userPhoto, "Original photo")}>AI Try on</button>
                     {modal && (
                         <div className="popup">
                             
