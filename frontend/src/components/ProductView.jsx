@@ -10,21 +10,11 @@ import Button from './Button'
 
 import iconClose from '../assets/images/iconclose.png'
 import axios from 'axios'
-//const jwt=require('jsonwebtoken')
 
 const ProductView = props => {
-//     const navigate = useNavigate();
 
-//   const navigateToBorrow = () => {
-//     navigate('/borrow');
-//   };
     
     const product = props.product
-    // const slug=product.slug
-    // const history = useHistory(); 
-    // const routeChange = () =>{ 
-    //     history.push(slug+'/borrow');
-    // }
 
     const [products, setProducts] = useState(product)
 
@@ -50,9 +40,6 @@ const ProductView = props => {
     }
 
     const token=localStorage.getItem('auth-token');
-    // const decodedToken = jwt.verify(token, 'secret_ecom');
-    // // Extract the data from the decoded token
-    // const customerID = decodedToken.customerID;
     if (token){
         axios.get("http://localhost:4000/getCustomerInfo/"+customerId,{
             headers: {
@@ -73,17 +60,17 @@ const ProductView = props => {
         // document.body.style.background = bgcolor;
     }, [product])
 
-    const borrowBook = () => {
-        let newItem = {
-            slug: product.slug,
-        }
-        setProducts(product);
-        props.history.push({
-            state: product.slug,
-            pathname:'/borrow', 
-            state: {image: product.image, name: product.name, price: product.price}, 
-        })
-    }
+    // const borrowBook = () => {
+    //     let newItem = {
+    //         slug: product.slug,
+    //     }
+    //     setProducts(product);
+    //     props.history.push({
+    //         state: product.slug,
+    //         pathname:'/borrow', 
+    //         state: {image: product.image, name: product.name, price: product.price}, 
+    //     })
+    // }
 
     async function convertImagesToBytes(imageUrls) {
         const bytesArray = [];
@@ -249,8 +236,8 @@ const ProductView = props => {
                     
                 </div>
                 <div className="product__info__item">
-                <Button onClick={() => borrowBook()}>Buy now</Button>
-                    <Button onClick={() => borrowBook()}>Add to cart</Button>
+                    <Button>Buy now</Button>
+                    <Button>Add to cart</Button>
                 </div>
             </div>
         </div>
