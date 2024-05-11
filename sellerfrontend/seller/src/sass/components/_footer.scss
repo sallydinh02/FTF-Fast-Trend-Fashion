@@ -1,0 +1,26 @@
+.footer {
+    @include flex(center, center);
+    padding: 10px 0;
+    box-shadow: $box-shadow;
+    font-size: 1.1rem;
+
+    &__title {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        position: relative;
+    }
+
+    &__copyright {
+        
+        p {
+            text-align: center;
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            position: relative;
+        }
+    }
+}

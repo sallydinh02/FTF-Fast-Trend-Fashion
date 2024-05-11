@@ -1,0 +1,117 @@
+.signup {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    //background: #fbe9f2;
+    padding-top: 0px;
+
+    &__container {
+        width: 730px;
+        height: 730px;
+        background: white;
+        margin: auto;
+        //justify-content: center;
+        padding: 17px;
+        h1 {
+            text-align: center;
+            margin: 20px 0px;
+            font-size: 300%;
+        }
+      }
+      
+      &__fields {
+        display: flex;
+        flex-direction: row;
+        gap: 60px;
+        margin-top: 38px;
+        justify-content: center;
+        align-items: center;
+        &__input{
+          //flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          //margin-top: 15px;
+
+          input {
+              height: 55px;
+              width: 350px;
+              padding-left: 20px;
+              border: 1px solid #a3a2a2;
+              outline: none;
+              color: #292828;
+              font-size: 22px;
+          }
+        }
+
+        &__img{
+          //flex: 1;
+          display: flex;
+          width: 140%;
+          height: 140%;
+          flex-direction: column;
+          //margin-top: 10px;
+          //padding-left: 20px;
+          justify-content: center;
+          align-items: center;
+          p{
+            font-size: 22px;
+            text-align: center;
+            font-weight: 400;
+          }
+          img{
+            margin-top: 20px;
+            border: 2px solid #a3a2a2;
+          }
+          input{
+            margin-top: 15px;
+          }
+        }
+      }
+      
+      &__button-container{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        button{
+            width: 35%;
+            height: 60px;
+            color:white;
+            background:$main-color;
+            border-radius: 10px;
+            margin-top: 50px;
+            border: none;
+            font-size: 28px;
+            font-weight: 600;
+            cursor: pointer;
+          }
+      }
+      &__clicklogin-container{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        p{
+            margin-top: 25px;
+            color: #5c5c5c;
+            font-size: 22px;
+            font-weight: 500;
+            span{
+                color:$main-color
+            }
+          }
+      }  
+      &__clicknext-container{
+        display: flex;
+        justify-content: right;
+        align-items:center;
+        p{
+            margin-top: 35px;
+            color: #5c5c5c;
+            font-size: 28px;
+            font-weight: 500;
+            span{
+                color:$main-color
+            }
+          }
+      }     
+}
