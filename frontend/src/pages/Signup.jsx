@@ -4,7 +4,6 @@ import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Helmet from '../components/Helmet'
 import tryonPhotoEx from '../assets/images/example-photo.jpg'
-//import tryonPhotoEx from '../assets/images/example-photo-old.jpg'
 
 const Signup = () => {
     const [tryonPhoto, setTryonPhoto]=useState(false);
