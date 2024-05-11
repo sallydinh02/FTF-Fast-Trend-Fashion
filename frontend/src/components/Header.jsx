@@ -1,10 +1,11 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../assets/images/FTF-logo-crop.png'
 import cartImg from '../assets/images/iconcart.png'
 import userImg from '../assets/images/iconuser.png'
 import SearchBar from './SearchBar'
+import { ShopContext } from '../Context/ShopContext'
 
 const mainNavLeft = [
     // {
@@ -51,6 +52,7 @@ const mainNavLeft = [
 // ]
 
 const Header = () => {
+    const {products}=useContext(ShopContext)
 
     const { pathname } = useLocation()
     const activeNavLeft = mainNavLeft.findIndex(e => e.path === pathname)
@@ -106,7 +108,7 @@ const Header = () => {
                             ))
                         }
                     </div>
-                    <SearchBar></SearchBar>
+                    <SearchBar placeholder="Search for products" data={products}></SearchBar>
                     <div className="header__menu__right">
                         {/* {
                             mainNavRight.map((item, index) => (
@@ -123,7 +125,8 @@ const Header = () => {
                         } */}
                         
                         <div className="header__menu__right__item">
-                            {localStorage.getItem('auth-token')
+                            {
+                            localStorage.getItem('auth-token')
                             ?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Logout</button>
                             :<Link to="/login"><button>Login</button></Link>}
                             <Link to="/myaccount"><p>My account</p></Link>

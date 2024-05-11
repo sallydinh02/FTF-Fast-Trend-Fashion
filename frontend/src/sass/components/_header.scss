@@ -167,7 +167,11 @@
     .searchInputs {
         //margin-top: 5px;
         //margin: 0 auto;
+        margin-top: 5px;
+        position: relative;
         display: flex;
+        margin-left: 5px;
+        align-items: center;
       }
       
       .search input {
@@ -203,8 +207,9 @@
       }
       
       .dataResult {
-        margin-top: 5px;
-        width: 300px;
+        //margin-top: 65px;
+        position: fixed;
+        width: 612px;
         height: 200px;
         background-color: white;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -222,6 +227,7 @@
       
       .dataItem p {
         margin-left: 10px;
+        position: relative;
       }
     // old code with error hover light grey all header
     //   a {
@@ -233,13 +239,13 @@
     //     }
 
     // not hover all header but not sure if it will hover search result
-      a {
+      .dataItem a {
         text-decoration: none;
-        a:hover {
-            background-color: lightgrey;
-          }
+        
       }
-      
+      .dataItem a:hover {
+        background-color: lightgrey;
+      }
       #clearBtn {
         cursor: pointer;
       }

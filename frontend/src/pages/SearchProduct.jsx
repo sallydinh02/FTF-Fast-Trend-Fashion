@@ -3,8 +3,8 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import Helmet from '../components/Helmet'
 import CheckBox from '../components/CheckBox'
 import productData from '../assets/data-loaded/products'
-import genre from '../assets/data-loaded/genre'
-import booktypes from '../assets/data-loaded/booktype'
+import category from '../assets/data-loaded/category'
+import productType from '../assets/data-loaded/productType'
 // import size from '../assets/data-loaded/product-size'
 import Button from '../components/Button'
 import InfinityList from '../components/InfinityList'
@@ -17,9 +17,8 @@ const SearchProduct = () => {
     //     document.body.style.background = bgcolor;
     //   });
     const initFilter = {
-        genre: [],
-        booktype: [],
-        size: []
+        category: [],
+        productType: [],
     }
 
     const productList = productData.getAllProducts()
@@ -31,23 +30,23 @@ const SearchProduct = () => {
     const filterSelect = (type, checked, item) => {
         if (checked) {
             switch(type) {
-                case "genre":
-                    setFilter({...filter, genre: [...filter.genre, item.genreSlug]})
+                case "CATEGORY":
+                    setFilter({...filter, category: [...filter.category, item.categorySlug]})
                     break
-                case "BOOK TYPE":
-                    setFilter({...filter, booktype: [...filter.booktype, item.booktype]})
+                case "PRODUCT TYPE":
+                    setFilter({...filter, productType: [...filter.productType, item.productType]})
                     break
                 default:
             }
         } else {
             switch(type) {
                 case "GENRE":
-                    const newGenre = filter.genre.filter(e => e !== item.genreSlug)
-                    setFilter({...filter, genre: newGenre})
+                    const newCategory = filter.category.filter(e => e !== item.categorySlug)
+                    setFilter({...filter, category: newCategory})
                     break
-                case "BOOK TYPE":
-                    const newBookType = filter.booktype.filter(e => e !== item.booktype)
-                    setFilter({...filter, booktype: newBookType})
+                case "PRODUCT TYPE":
+                    const newProductType = filter.productType.filter(e => e !== item.productType)
+                    setFilter({...filter, productType: newProductType})
                     break
                
                 default:
@@ -61,13 +60,13 @@ const SearchProduct = () => {
         () => {
             let temp = productList
 
-            if (filter.genre.length > 0) {
-                temp = temp.filter(e => filter.genre.includes(e.genreSlug))
+            if (filter.category.length > 0) {
+                temp = temp.filter(e => filter.category.includes(e.categorySlug))
             }
 
-            if (filter.booktype.length > 0) {
+            if (filter.productType.length > 0) {
                 temp = temp.filter(e => {
-                    const check = e.booktypes.find(booktype => filter.booktype.includes(booktype))
+                    const check = e.productType.find(productType => filter.productType.includes(productType))
                     return check !== undefined
                 })
             }
@@ -93,16 +92,16 @@ const SearchProduct = () => {
                     </div>
                     <div className="catalog__filter__widget">
                         <div className="catalog__filter__widget__title">
-                            Book format
+                            Product Type
                         </div>
                         <div className="catalog__filter__widget__content">
                             {
-                                booktypes.map((item, index) => (
+                                productType.map((item, index) => (
                                     <div key={index} className="catalog__filter__widget__content__item">
                                         <CheckBox
                                             label={item.display}
-                                            onChange={(input) => filterSelect("booktype", input.checked, item)}
-                                            checked={filter.booktype.includes(item.booktype)}
+                                            onChange={(input) => filterSelect("productType", input.checked, item)}
+                                            checked={filter.productType.includes(item.productType)}
                                         />
                                     </div>
                                 ))
@@ -111,16 +110,16 @@ const SearchProduct = () => {
                     </div>
                     <div className="catalog__filter__widget">
                         <div className="catalog__filter__widget__title">
-                            Genre
+                            Product Category
                         </div>
                         <div className="catalog__filter__widget__content">
                             {
-                                genre.map((item, index) => (
+                                category.map((item, index) => (
                                     <div key={index} className="catalog__filter__widget__content__item">
                                         <CheckBox
                                             label={item.display}
                                             onChange={(input) => filterSelect("GENRE", input.checked, item)}
-                                            checked={filter.genre.includes(item.genreSlug)}
+                                            checked={filter.category.includes(item.categorySlug)}
                                         />
                                     </div>
                                 ))
