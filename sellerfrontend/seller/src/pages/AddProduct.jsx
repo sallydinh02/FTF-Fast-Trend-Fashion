@@ -3,8 +3,8 @@ import Helmet from '../components/Helmet'
 
 const AddProduct = () => {
   return (
-    <Helmet title="Seller">
-            Sell on FTF
+    <Helmet title="Add Product">
+            Add Product
         </Helmet>
   )
 }
