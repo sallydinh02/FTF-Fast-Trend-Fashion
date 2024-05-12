@@ -28,11 +28,8 @@ const Login = () => {
             if(result.data.success)
             {
               const customerId=result.data._id;
-              //const customerId={id};
-              //console.log(result.data._id);
               localStorage.setItem('auth-token',result.data.token);
               dispatch(setCustomerLogin(true, customerId));
-              //result.setHeader("auth-token", result.data.token);
               history.push("/")
             }
             else

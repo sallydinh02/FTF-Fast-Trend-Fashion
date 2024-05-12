@@ -14,19 +14,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const Product = ({ match }) => {
-    // const {slug}=useParams();
-    // const {products}=useContext(ShopContext);
-    // const [product, setProduct] = useState(null);
-    //const product=productData.find((e)=>e.slug===slug)
-    // const product = productData.getProductBySlug(props.match.params.slug);
-    // console.log(product);
-    // const {id}=useParams();
-    // const {products}=useContext(ShopContext);
-    // const product=products.find(p=>p.id===props.match.params.id);
-
-    //const relatedProducts = productData.getAllProducts();
     const [product, setProduct]=useState({});
-    //const {productID}=useParams();
     useEffect(() => {
     const fetchProduct=async(req, res)=>{
         const response = await axios.get(`http://localhost:4000/allproducts/${match.params.slug}`);
@@ -45,13 +33,6 @@ const Product = ({ match }) => {
                 </SectionBody>
             </Section>
         </Helmet>
-        // <div>
-        //     <h1>Product Detail</h1>
-        //     <div>
-        //         <h2>{product.name}</h2>
-        //         <p>Price: {product.price}</p>
-        //     </div>
-        // </div>
     )
 }
 
