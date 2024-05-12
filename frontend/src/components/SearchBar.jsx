@@ -64,27 +64,6 @@ function SearchBar({ placeholder, data }) {
           })}
         </div>
       )}
-      {/*<div className="dataResult">
-          {data
-            .filter((item) => {
-              const searchTerm = wordEntered.toLowerCase();
-              const title = item.title.toLowerCase();
-
-              return (
-                title.toLowerCase().includes(searchTerm)
-              );
-            })
-            .slice(0, 10)
-            .map((item) => (
-              <div
-                onClick={pushLink(item.slug)}
-                className="dataItem"
-                key={item.title}
-              >
-                {item.title}
-              </div>
-            ))}
-          </div>*/}
       
     </div>
   );

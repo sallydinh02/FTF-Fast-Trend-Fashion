@@ -5,17 +5,11 @@ import CheckBox from '../components/CheckBox'
 import productData from '../assets/data-loaded/products'
 import category from '../assets/data-loaded/category'
 import productType from '../assets/data-loaded/productType'
-// import size from '../assets/data-loaded/product-size'
 import Button from '../components/Button'
 import InfinityList from '../components/InfinityList'
 import SearchBar from '../components/SearchBar'
 
 const SearchProduct = () => {
-    // useEffect(() => {
-    //     // change background color with a random color
-    //     const bgcolor = "#DDFFF9"
-    //     document.body.style.background = bgcolor;
-    //   });
     const initFilter = {
         category: [],
         productType: [],

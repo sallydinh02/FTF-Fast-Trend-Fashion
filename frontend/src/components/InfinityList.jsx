@@ -32,10 +32,6 @@ const InfinityList = props => {
             
         })
     }, [listRef])
-    // const handleScroll = event => {
-    //     console.log('scrollTop: ', event.currentTarget.scrollTop);
-    //     console.log('offsetHeight: ', event.currentTarget.offsetHeight);
-    //   };
 
     useEffect(() => {
         const getItems = () => {

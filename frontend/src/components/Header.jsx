@@ -8,10 +8,6 @@ import SearchBar from './SearchBar'
 import { ShopContext } from '../Context/ShopContext'
 
 const mainNavLeft = [
-    // {
-    //     display: "Home",
-    //     path: "/"
-    // },
     {
         display: "Sell On FTF",
         path: "/ftf-seller"
@@ -22,42 +18,12 @@ const mainNavLeft = [
     },
 ]
 
-// const mainNavRight=[
-    
-//     {
-//         display: "Login",
-//         path: "/login"
-//     },
-//     {
-//         display: "My account",
-//         path: "/myaccount",
-//         // submenu: [
-//         // {
-//         //     display: 'Login',
-//         //     path: 'login',
-//         // },
-//         // {
-//         //     display: 'Profile',
-//         //     path: 'profile',
-//         // },
-//         // {
-//         //     display: 'Logout',
-//         //     path: 'logout',
-//         // },]
-//     },
-//     // {
-//     //     display: "View cart",
-//     //     path: "/viewcart"
-//     // },
-// ]
-
 const Header = () => {
     const {products}=useContext(ShopContext)
 
     const { pathname } = useLocation()
     const activeNavLeft = mainNavLeft.findIndex(e => e.path === pathname)
-    //const activeNavRight = mainNavRight.findIndex(e => e.path === pathname)
-
+    
     const headerRef = useRef(null)
 
     useEffect(() => {
@@ -110,19 +76,6 @@ const Header = () => {
                     </div>
                     <SearchBar placeholder="Search for products" data={products}></SearchBar>
                     <div className="header__menu__right">
-                        {/* {
-                            mainNavRight.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className={`header__menu__item header__menu__left__item ${index === activeNavRight ? 'active' : ''}`}
-                                    onClick={menuToggle}
-                                >
-                                    <Link to={item.path}>
-                                        <span>{item.display}</span>
-                                    </Link>
-                                </div>
-                            ))
-                        } */}
                         
                         <div className="header__menu__right__item">
                             {

@@ -56,21 +56,7 @@ const ProductView = props => {
 
     useEffect(() => {
         setPreviewImg(product.image);
-        // const bgcolor = "#DDFFF9"
-        // document.body.style.background = bgcolor;
     }, [product])
-
-    // const borrowBook = () => {
-    //     let newItem = {
-    //         slug: product.slug,
-    //     }
-    //     setProducts(product);
-    //     props.history.push({
-    //         state: product.slug,
-    //         pathname:'/borrow', 
-    //         state: {image: product.image, name: product.name, price: product.price}, 
-    //     })
-    // }
 
     async function convertImagesToBytes(imageUrls) {
         const bytesArray = [];
@@ -105,7 +91,7 @@ const ProductView = props => {
         for (let i = 0; i < bytesArray.length; i++) {
             formData.append(`image${i + 1}`, new Blob([bytesArray[i]]), `image${i + 1}.jpg`);
         }
-    
+        // Replace the ngrok URL with the URL generated after running FastAPI app on Google Colab
         fetch('https://6e42-34-83-121-185.ngrok-free.app/try-on/image', {
             method: 'POST',
             body: formData
@@ -125,38 +111,10 @@ const ProductView = props => {
             alert('Error try on. Try again.');
           });
     }
-    
-
-//     const postTryon = async()=>{
-//         await fetch("https://172c-34-83-247-8.ngrok-free.app/try-on/image",{
-//             method: 'POST',
-//             credentials: 'include',
-//             headers:{
-//                 Accept: 'application/json',
-//                 'Content-Type': 'application/json',
-//             },
-//             body: JSON.stringify({
-//                 userImg: userPhoto,
-//                 clothImg: product.image02
-//             })
-//     })
-//     .then(result=>result.json())
-//     .then(data=>{
-//         if (data.message=='success'){
-//             setTryonResult(data.result)
-//         }
-//     })
-//     .catch(error => {
-//         console.error('Error getting try-on image result:', error);
-//         alert('Error try on. Try again.');
-//       });
-// }
-//, resultImage, title2
 
     const imageUrls=[userPhoto, product.image02]
 
     const handleClickTryon=(originalImage, title1)=>{
-        //postTryon();
         convertImagesToBytes(imageUrls)
         .then(bytesArray => {
             sendImagesToFastAPI(bytesArray);
@@ -172,10 +130,6 @@ const ProductView = props => {
     const closePopup = () => {
         setModal(false);
     };
-
-    // const goToBorrow = () => {
-    //     props.history.push('/borrow')
-    // }
 
     return (
         <div className="product">
@@ -204,16 +158,12 @@ const ProductView = props => {
                 <h3 className="product__info__price">
                     {product.price}
                 </h3>
-                {/* <div className="product__info__item">
-                    <div className="product__info__item__content"> {product.description}</div>
-                </div> */}
                 <div className="product__info__item">
                     <button className="product__info__item__tryonButton" onClick={() => handleClickTryon(userPhoto, "Original photo")}>AI Try on</button>
                     {modal && (
                         <div className="popup">
                             
                             <div className="popup-content">
-                                {/* <img className="close-btn" src={iconClose} alt="" width="10%" height="10%" onClick={closePopup}></img> */}
                                 
                                 <div className="popup-content__original">
                                     

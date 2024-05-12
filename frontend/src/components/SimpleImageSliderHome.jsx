@@ -4,7 +4,6 @@ const images = [
     { url: require("../assets/images/slider/banner1.jpg") },
     { url: require("../assets/images/slider/banner2.jpg") },
   ];
-// const { ref, width = 3.908, height = 1 } = useResizeObserver();
 const SimpleImageSliderHome = () => {
   return (
     <div style={{objectFit: 'cover'}}>
