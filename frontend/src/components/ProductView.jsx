@@ -106,7 +106,7 @@ const ProductView = props => {
             formData.append(`image${i + 1}`, new Blob([bytesArray[i]]), `image${i + 1}.jpg`);
         }
     
-        fetch('https://f7ed-34-80-113-189.ngrok-free.app/try-on/image', {
+        fetch('https://6e42-34-83-121-185.ngrok-free.app/try-on/image', {
             method: 'POST',
             body: formData
         })
