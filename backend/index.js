@@ -15,7 +15,7 @@ app.use(cors({
     credentials: true
 }));
 
-mongoose.connect("mongodb+srv://sallymyky02:sally139@cluster0.lencr1d.mongodb.net/ecommerce");
+mongoose.connect("mongodb+srv://xxxxx:yyyyy@cluster0.lencr1d.mongodb.net/ecommerce");
 
 app.get("/", (req, res)=>{
     res.send("Express app is running")
