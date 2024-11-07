@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#others
+src/assets/images/FTF-logo.png
+src/assets/images/FTF-logo-crop.png
+src/assets/images/FTF-seller.png
+src/assets/images/banner3.png
