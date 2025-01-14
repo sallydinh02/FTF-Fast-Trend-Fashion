@@ -25,3 +25,6 @@ Step 5: Run frontend:
 * cd frontend
 * npm install
 * npm start
+
+# Architecture
+![new architecture 491 - Copy](https://github.com/user-attachments/assets/1bd4b97c-5e14-4b2f-a9ea-6682218314a5)
