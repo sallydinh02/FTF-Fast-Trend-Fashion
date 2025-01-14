@@ -1,6 +1,5 @@
-# FTF - Fast Trend Fashion
-* Designed UI/UX with Figma, developed a full-stack AI-powered web app for fashion e-commerce using React, Node.js, Express.js, MongoDB, Python, Pytorch, CuPy, FastAPI, and tunneled AI server with Ngrok. 
-* Trained and integrated AI try-on models into the web app, assisting customers in finding products that look good on them with AI as if they are trying on clothes in fashion stores. Improved page speed by 40% by optimizing image loading on backend and AI servers.
+# About
+FTF - Fast Trend Fashion is an AI-powered fashion e-commerce web app that helps customers find products that fit and look good on them with AI try-on feature. I designed UI/UX with Figma, developed front-end and back-end using React, Node.js, Express.js, MongoDB, trained and integrated AI try-on model to the website using Python, FastAPI, Pytorch, Cupy and tunneled AI server with Ngrok.
 
 # Architecture
 ![new architecture 491 - Copy](https://github.com/user-attachments/assets/1bd4b97c-5e14-4b2f-a9ea-6682218314a5)
